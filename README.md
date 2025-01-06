@@ -20,6 +20,7 @@
 ## Table of Contents
 
 * [**Notes**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/)
+    * [**Lecture 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Lecture1.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/)
 * [**Exams**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Exams/)
 
