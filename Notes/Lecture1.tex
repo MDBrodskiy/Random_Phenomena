@@ -63,6 +63,82 @@
 
     \end{itemize}
 
+  \item The Inclusion-Exclusion Rule
+
+    \begin{itemize}
+
+      \item For two finite sets $A$ and $B$, we have:
+
+        $$|A\cup B|=|A|+|B|-|A\cap B|$$
+
+      \item This can be expanded to three sets (with a new set $C$):
+
+        $$|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\cap C|$$
+
+    \end{itemize}
+
+  \item Types of Sets
+
+    \begin{itemize}
+
+      \item Collectively Exhaustive Sets — A collection of sets $A_1,A_2,\cdots,A_n$ are collectively exhaustive if (at least one of the events must occur):
+
+        $$A_1\cup A_2 \cup \cdots \cup A_n=S$$
+
+      \item Mutually Exclusive Sets — Two sets are mutually exclusive if they have no elements in common:
+
+        $$A_i\cap A_f = \emptyset\quad i\neq j$$
+
+      \item Partitions — A collection of sets $A_1,A_2,\cdots,A_n$ is a partition if they are both mutually exclusive and collectively exhaustive:
+
+        $$A_1\cup A_2\cup \cdots \cup A_n=S\quad\text{ and }\quad A_i\cap A_j=\emptyset\quad i\neq j$$
+
+    \end{itemize}
+
+  \item Algebraic Rules of Manipulating Sets
+
+    \begin{itemize}
+
+      \item Commutative: $A\cap B= B\cap A$ and $A\cup B = B\cup A$
+
+      \item Associative: $A\cap (B\cap C)= (A\cap B)\cap C$
+
+      \item Distributive: $A\cup (B\cap C)= (A\cup B)\cap (A\cup C)$
+
+      \item De Morgan's Law: $(A\cup B)^c = A^c\cap B^c$ and $(A\cap B)^c=A^c\cup B^c$
+
+    \end{itemize}
+
+  \item Applying Set Theory to Probability Theory
+
+    \begin{itemize}
+
+      \item The Probability Function
+
+        \begin{itemize}
+
+          \item A probability measure $P[x]$ is a function that maps events in the sample space to real numbers
+
+          \item The probability function assigns a value $0$ to $1$ to a certain event; for example, the probability function of rolling a single, standard die would be $P[1]=P[2]=\cdots=P[6]=1/6$
+
+        \end{itemize}
+
+      \item Axioms of Probability
+
+        \begin{itemize}
+
+          \item For any event $A$, $P[A]\geq 0$
+
+          \item $P[S]=1$
+
+          \item For any countable collection of mutually exclusive events:
+
+            $$P[A_1\cup A_2\cup\cdots\cup A_n]=P[A_1]+P[A_2]+\cdots+P[A_n]$$
+
+        \end{itemize}
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}
