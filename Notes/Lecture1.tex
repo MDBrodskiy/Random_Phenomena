@@ -151,6 +151,66 @@
 
     \end{itemize}
 
+  \item Prior, Posterior, and Conditional Probabilities
+
+    \begin{itemize}
+
+      \item Prior Probability $P[A]$: The probability of an event $A$ before any other information or evidence is considered
+
+      \item Conditional Probability $P[A|B]$: The probability of $A$ given that $B$ has occurred, showing how $B$ influences the likelihood of $A$
+
+        \begin{itemize}
+
+          \item $P[A]=$ Prior Probability of Event $A\to P[A]=\dfrac{|A|}{|S|}$
+
+          \item $P[A|B]=$ Conditional Probability of $A$ Given Event $B$ Occurred
+
+          \item When event $B$ occurs, the sample space is reduced to $B$
+
+            $$P[A|B]=\frac{|A\cap B|}{|B|}=\frac{P[A\cap B]}{P[B]}$$
+
+        \end{itemize}
+
+      \item Posterior Probability $P[B|A]$: The probability of event $B$ after observing event $A$. It represents a ``revised belief'' about $B$, incorporating the new information provided by $A$. Posterior probability adjusts the prior probability of $B$ based on the evidence from $A$
+
+    \end{itemize}
+
+  \item Bayes Rule and Statistical Independence
+
+    $$P[A\cap B]=P[AB]=P[B]P[A|B]=P[A]P[B|A]$$
+
+    \begin{itemize}
+
+      \item Bayes' Rule states:
+
+        $$P[A|B]=\frac{P[AB]}{P[B]}\quad\text{ and }\quad P[B|A]=\frac{P[AB]}{P[A]}$$
+
+      \item $A$ and $B$ are statistically independent if:
+
+        $$P[AB]=P[A]P[B]\quad\text{ or }\quad P[A|B]=P[A]\text{ and }P[B|A]=P[B]$$
+
+    \end{itemize}
+
+  \item Probability Chain Rule of Three Events
+
+    $$P[ABC]=P[C]P[AB|C]=P[C]P[B|C]P[A|BC]$$
+
+    \begin{itemize}
+
+      \item $A,B,$ and $C$ are statistically independent if $P[ABC]=P[A]P[B]P[C]$ and each pair satisfies the condition of independence:
+
+        \begin{itemize}
+
+          \item $A$ and $B$ are statistically independent
+
+          \item $A$ and $C$ are statistically independent
+
+          \item $B$ and $C$ are statistically independent
+
+        \end{itemize}
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}
