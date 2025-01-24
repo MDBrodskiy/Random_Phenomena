@@ -18,21 +18,105 @@
 
     \setcounter{enumi}{1}
 
-  \item
+  \item We can construct a contingency table to convey the information provided:
 
-  \item
+    \begin{center}
+      \begin{tabular}[H]{|c|c|c|c|}
+        \hline
+        \rowcolor{black!60} \cellcolor{white} & \textcolor{white}{A} & \textcolor{white}{Not A} & \textcolor{white}{Total}\\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{On Campus} & 40 & 160 & 200\\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{Off Campus} & 80 & 320 & 400\\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{Total} & 120 & 480 & 600\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    From here, we can calculate the probability of receiving an A as:
+
+    $$P[A]=\frac{120}{600}=.2$$
+
+    The probability of a student living on campus is then:
+
+    $$P[C]=\frac{200}{600}=.33\bar{3}$$
+
+    From the table above, we can calculate the probability of a student living on campus and getting an A:
+
+    $$P[A\cap C]=\frac{40}{600}=.066\bar{6}$$
+
+    From our above results we can write:
+
+    $$P[A]P[C]=(.2)(.33\bar{3})=.066\bar{6}$$
+
+    As such, since $P[A\cap C]=P[A]P[C]$, \underline{the two events are independent}
+
+  \item First and foremost, we can express the probability of a router failing as $P$. From here, we can express the probability of one of the routers failing as the sum of each individual probability, less the probability that both fail. Thus, we can express this as:
+
+    $$P[A\cup B]=2P-P^2$$
+
+    We are given that this value equals 9\%. We can then define the probability that both fail. This can be expressed as:
+
+    $$P[A\cap B]=P[A]P[B|A]=.2p$$
+
+    We can solve the first equation:
+
+    $$P^2-2P+.09=0$$
+    $$P=.0461,1.9539$$
+
+    Since we know that probability must be between 0 and 1, we get:
+
+    $$\boxed{P=.0461}$$
+
+    This then gives us:
+
+    $$\boxed{P[A\cap B]=.2(.0461)=.00922}$$
+
+    And finally, we can find the probability that no routers fail as 1 minus the probability that one of the routers fails:
+
+    $$\boxed{P[(A\cap B)^c]=1-P[A\cup B]=.91}$$
 
   \item
 
     \begin{enumerate}
 
-      \item 
+      \item We begin by calculating the total amount of options for a four and five character password. Since a digit is required, one of the characters has 10 possibilities, while the rest have $10+3+26=39$. Thus, we can write:
 
-      \item 
+        $$N_4=(10)(39)^3=593190$$
+        $$N_5=(10)(39)^4=23134410$$
 
-      \item 
+        We then sum the two to get:
 
-      \item 
+        $$N_t=N_4+N_5$$
+        $$\boxed{N_t=23727600}$$
+
+      \item We find the amount of 5-character passwords that begin with '1' as:
+
+        $$N_1=39^4=2313441$$
+
+        This means the probability of such a password is:
+
+        $$P[1]=\frac{N_1}{N_5}=\frac{1}{10}$$
+        $$\boxed{P[1]=.1}$$
+
+      \item The amount of all-digit passwords may be found as:
+
+        $$N_d=10^5+10^4=110000$$
+
+        This gives us:
+
+        $$P[d]=\frac{N_d}{N_t}=\frac{11000}{2313441}$$
+        $$\boxed{P[d]=.004755}$$
+
+      \item The total amount of 5-character passwords that end in a special character are:
+
+        $$N_c=(10)(39^3)=593190$$
+
+        This gives us:
+
+        $$P[c]=\frac{N_c}{N_5}=\frac{1}{39}$$
+        $$\boxed{P[c]=.0256}$$
 
     \end{enumerate}
 
@@ -40,13 +124,44 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Out of 25 laptops, the technician selects 5 at random, this means we have ``25 choose 5'' which can be expressed as:
 
-      \item 
+        $$\left( \begin{matrix} 25\\ 5\end{matrix} \right)=\frac{25!}{5!20!}$$
 
-      \item 
+        Thus, we find the total number of combinations as:
 
-      \item 
+        $$\boxed{N=53130}$$
+
+      \item We can express the number of samples containing 2 hardware issues as:
+
+        $$N_{2H}=\left( \begin{matrix} 6\\ 2\end{matrix} \right)\left( \begin{matrix} 19\\ 3\end{matrix} \right)$$
+        $$N_{2H}=\frac{6!19!}{2!4!3!16!}$$
+        $$N_{2H}=14535$$
+
+        This gives us a probability of:
+
+        $$P[2H]=\frac{14535}{53130}$$
+        $$\boxed{P[2H]=.2736}$$
+
+      \item The probability that at least four have software issues requires the calculation of combinations with at least four software issues:
+
+        $$N_{4+S}=\left( \begin{matrix} 6\\ 1\end{matrix} \right)\left( \begin{matrix} 19\\ 4\end{matrix} \right)\left( \begin{matrix} 6\\ 0\end{matrix} \right)\left( \begin{matrix} 19\\ 5\end{matrix} \right)$$
+        $$N_{4+S}=34884$$
+
+        We then calculate the probability:
+
+        $$P[4+S]=\frac{34884}{53130}$$
+        $$\boxed{P[4+S]=.6566}$$
+
+      \item We calculate the total amount of possibilities with solely software and solely hardware issues:
+
+        $$N_{5H|5S}=\left( \begin{matrix} 6\\ 5\end{matrix} \right)+\left( \begin{matrix} 19\\ 5\end{matrix} \right)$$
+        $$N_{5H|5S}=11634$$
+
+        This gives us:
+        
+        $$P[5H|5S]=\frac{11634}{53130}$$
+        $$\boxed{P[5H|5S]=.219}$$
 
     \end{enumerate}
 
@@ -54,7 +169,21 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We begin by constructing the table:
+
+    \begin{center}
+      \begin{tabular}[H]{|c|c|c|c|c|}
+        \hline
+        \rowcolor{black!60} \cellcolor{white} & \textcolor{white}{$R_o$} & \textcolor{white}{$R_1$} & \textcolor{white}{$R_2$} & \textcolor{white}{Total}\\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{$S$} & & & & \\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{$M$} & & & &\\
+        \hline
+        \cellcolor{black!60} \textcolor{white}{Total} & & & & 1\\
+        \hline
+      \end{tabular}
+    \end{center}
 
       \item 
 
