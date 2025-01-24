@@ -23,6 +23,7 @@
     * [**Lecture 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Lecture1.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/)
     * [**Homework 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework1.pdf)
+    * [**Homework 2**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework2.pdf)
 * [**Exams**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Exams/)
 
 <!--
