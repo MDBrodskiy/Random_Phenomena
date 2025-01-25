@@ -169,22 +169,54 @@
 
     \begin{enumerate}
 
-      \item We begin by constructing the table:
+      \item We begin by constructing the table. Note that all values are converted into \nth{16}s for simplicity. Given cells are highlighted in green and calculated in yellow:
 
     \begin{center}
       \begin{tabular}[H]{|c|c|c|c|c|}
         \hline
         \rowcolor{black!60} \cellcolor{white} & \textcolor{white}{$R_o$} & \textcolor{white}{$R_1$} & \textcolor{white}{$R_2$} & \textcolor{white}{Total}\\
         \hline
-        \cellcolor{black!60} \textcolor{white}{$S$} & & & & \\
+        \cellcolor{black!60} \textcolor{white}{$S$} & \cellcolor{green!50} 6/16 & \cellcolor{yellow!40} 3/16 & \cellcolor{yellow!40} 2/16 & \cellcolor{green!50} 11/16\\
         \hline
-        \cellcolor{black!60} \textcolor{white}{$M$} & & & &\\
+        \cellcolor{black!60} \textcolor{white}{$M$} & \cellcolor{yellow!40} 2/16 & \cellcolor{yellow!40} 1/16 & \cellcolor{green!50} 2/16 & \cellcolor{yellow!40} 5/16\\
         \hline
-        \cellcolor{black!60} \textcolor{white}{Total} & & & & 1\\
+        \cellcolor{black!60} \textcolor{white}{Total} & \cellcolor{green!50} 8/16 & \cellcolor{green!50} 4/16 & \cellcolor{green!50} 4/16 & \cellcolor{green!50} 1\\
         \hline
       \end{tabular}
     \end{center}
 
+      \item Per the table above, the probability is:
+
+        $$P[R_2|S]=\frac{2}{16}\cdot\frac{16}{11}$$
+        $$\boxed{P[S\cap R_2]=.1818}$$
+
+      \item Per the table above, we can calculate this as:
+
+        $$P[(R_o\cup R_1)|M]=\left(\frac{2}{16}+\frac{1}{16}\right)\cdot\frac{16}{5}$$
+        $$\boxed{P[(R_o\cup R_1)|M]=.6}$$
+
+      \item We can calculate this as:
+
+        $$P[R_o|(R_o\cup R_1)]=\frac{P[R_o]}{P[R_o]+P[R_1]}$$
+        $$P[R_o|(R_o\cup R_1)]=\frac{1/2}{3/4}$$
+        $$\boxed{P[R_o|(R_o\cup R_1)]=.66\bar{6}}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We begin by writing down the given information:
+
+        $$P[S]=.9$$
+        $$P[I]=1-.9=.1$$
+        $$P[C|I]=.5$$
+        $$P[C|S]=.2$$
+        $$P[D|(C\cap I)]=.75$$
+        $$P[D|(C^c\cap S)]=.75$$
+        $$P[D|(C^c\cap I)\cup (C\cap S)]=.3$$
+
       \item 
 
       \item 
@@ -197,13 +229,53 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may begin by writing down given information:
 
-      \item 
+        $$P[N]=.7$$
+        $$P[M]=.4$$
+        $$P[N\cap M]=.1$$
+        $$P[R_N|N]=.75$$
+        $$P[R_M|M]=.8$$
+        $$P[(R_N\cup R_M) |(N\cap M)]=.9$$
 
-      \item 
+        We need to calculate the individual probabilities that a customer renews a single service or both and sum them together. Per Bayes' Theorem, we know:
 
-      \item 
+        $$P[X|Y]=\frac{P[X\cap Y]}{P[Y]}$$
+
+        Since we want to find $P[R_N\cap N]$, $P[R_M\cap M]$, and $P[(R_N\cap R_M)\cap(N\cap M)]$, we get:
+
+        $$P[R_N\cap N]=P[N]P[R_N|N]=(.7)(.75)$$
+        $$P[R_M\cap M]=P[M]P[R_M|M]=(.4)(.8)$$
+        $$P[(R_N\cap R_M)\cap(N\cap M)]=P[(M\cap N)]P[(R_N\cup R_M) |(N\cap M)]=(.1)(.9)$$
+
+        This gives us:
+
+        $$\boxed{P[R_N\cap N]=.525}$$
+        $$\boxed{P[R_M\cap M]=.32}$$
+        $$\boxed{P[(R_N\cap R_M)\cap(N\cap M)]=.09}$$
+
+        We then sum the individual probabilities to get the overall probability of renewal:
+
+        $$\boxed{P[R_N\cup R_M\cup (R_N\cap R_M)]=.525+.32+.09=.935}$$
+
+      \item Here, our goal is to find $P[(N\cap M)|(R_N\cup R_M)]$ and $P[(N\cup M)|(R_N\cup R_M)]$. Per Bayes Rule, we know:
+
+        $$P[A|B]=\frac{P[B|A]P[A]}{P[B]}$$
+
+        Applying this to the current situation, we find:
+
+        $$P[(N\cap M)|(R_N\cup R_M)]=\frac{P[(R_N\cup R_M) |(N\cap M)]P[N\cap M]}{P[R_N\cup R_M]}$$
+        $$P[(N\cap M)|(R_N\cup R_M)]=\frac{(.9)(.1)}{.935}$$
+        $$\boxed{P[(N\cap M)|(R_N\cup R_M)]=.096257}$$
+
+        We can then find the alternate probability as:
+
+        $$P[(N\cup M)|(R_N\cup R_M)]=1-.096257$$
+        $$\boxed{P[(N\cup M)|(R_N\cup R_M)]=.9037}$$
+
+      \item This can be taken as the complement of the probability from part (a):
+
+        $$\boxed{P[R^c]=1-.935=.065}$$
 
     \end{enumerate}
 
@@ -211,31 +283,65 @@
 
     \begin{enumerate}
 
-      \item 
+      \item A tree diagram can be constructed as follows:
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW2-9a}
+          \caption{Tree Diagram for Routing Problem}
+          \label{fig:1}
+        \end{figure}
 
-      \item 
+      \item This would be represented by the sequence $1R_1^cR_2^c$. As the tree diagram suggests, we see:
+
+        $$\boxed{P[1R_1^cR_2^c]=.384}$$
+
+      \item Given that a '1' is sent by the transmitter, a '1' is received by the receiver in the sequences: $1R_1^cR_2^c$ and $1R_1R_2$. We sum the probabilities to get:
+
+        $$\boxed{P[1_R|1_T]=.384+.024=.408}$$
+
+      \item We now factor in receiving a '1' when a '0' is transmitted:
+
+        $$\boxed{P[1_R]=P[1_R|1_T] + 2(.064)=.536}$$
+
+      \item We can take the '1' sent '1' received case from part (c) and divide it by the '1' received general case to get:
+
+        $$\boxed{P[1_T|1_R]=.7612}$$
 
     \end{enumerate}
 
   \item
 
-    \begin{enumerate}
+    \begin{itemize}
 
-      \item 
+      \item Expected quantity of days over a week case
 
-      \item 
+        For this case, we simply multiply each probability (as each one represents the ``status per day'' probability) by the quantity of days in a week, or 7. This gets us:
 
-      \item 
+        $$N_E=\frac{63}{20}$$
+        $$\boxed{N_E=3.15[\text{days per week}]}$$
 
-      \item 
+        $$N_M=\frac{21}{20}$$
+        $$\boxed{N_M=1.05[\text{days per week}]}$$
 
-      \item 
+        $$N_C=\frac{56}{20}$$
+        $$\boxed{N_C=2.8[\text{days per week}]}$$
 
-    \end{enumerate}
+      \item Probability of 4 efficient, 1 moderate, and 2 congested days in a week
 
-  \item
+        We can represent this as a sequence of probabilities of each state per day. This gives us:
+
+        $$P[4E \cap 1M\cap 2C]=\frac{7!}{4!2!1!}\left( \frac{9}{20} \right)^4\left( \frac{3}{20} \right)\left( \frac{8}{20} \right)^2$$
+        $$\boxed{P[4E \cap 1M\cap 2C]=.1033}$$
+
+      \item Probability of equivalent days congested and efficient
+
+        There are four cases where this is true: a 3/3, 2/2, 1/1, and 0/0 split. We sum the probability of each individual state to get:
+
+        $$P[E=C]=\sum_{i=0}^3\frac{7!}{(i!)^2(7-2i)!}\left(  \frac{9}{20}\right)^i\left( \frac{8}{20} \right)^i\left( \frac{3}{20} \right)^{7-2i}$$
+        $$\boxed{P[E=C]=.146}$$
+
+    \end{itemize}
 
 \end{enumerate}
 
