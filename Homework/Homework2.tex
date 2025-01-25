@@ -214,14 +214,49 @@
         $$P[C|I]=.5$$
         $$P[C|S]=.2$$
         $$P[D|(C\cap I)]=.75$$
-        $$P[D|(C^c\cap S)]=.75$$
+        $$P[D|(C^c\cap S)]=.1$$
         $$P[D|(C^c\cap I)\cup (C\cap S)]=.3$$
 
-      \item 
+        We are interested in finding $P[I\cap C^c\cap D]$. We can apply our known formulas to write:
 
-      \item 
+        $$P[I\cap C^c\cap D]=P[I]P[C^c|I]P[D|(I\cap C^c)]$$
+        $$P[I\cap C^c\cap D]=(.1)(.5)(.3)$$
+        $$\boxed{P[I\cap C^c\cap D]=.015}$$
 
-      \item 
+      \item The probability of any kind of delay can be expressed as:
+
+        $$P[D]=\sum_{X} P[X]P[D|X]$$
+
+        Where $X$ is a given condition which the sum iterates over. There are four different cases to sum over: $SC^c$, $SC$, $IC^c$, and $IC$, all with delays (since this is the case of interest). We obtain one of the values from above and then sum for the rest:
+
+        $$P[D]=.015+(.9)(.8)(.1)+(.9)(.2)(.3)+(.1)(.5)(.75)$$
+        $$\boxed{P[D]=.1785}$$
+
+      \item Applying Bayes' theorem, we may write:
+
+        $$P[I|D]=\frac{P[I\cap D]}{P[D]}$$
+
+        Furthermore, we may write:
+
+        $$P[I\cap D]=P[I\cap C^c\cap D]+P[I\cap C\cap D]$$
+
+        From our values calculated in parts (a) and (b), we may write:
+
+        $$P[I|D]=\frac{.015+.0375}{.1785}$$
+        $$\boxed{P[I|D]=.2941}$$
+
+      \item Similar to part (c), we may use Bayes' theorem to write:
+
+        $$P[C|D]=\frac{P[C\cap D]}{P[D]}$$
+
+        And then expand to get:
+
+        $$P[C\cap D]=P[C\cap I\cap D]+P[C\cap S\cap D]$$
+
+        Once again, from our values calculated in parts (a) and (b), we obtain:
+
+        $$P[C|D]=\frac{.054+.0375}{.1785}$$
+        $$\boxed{P[C|D]=.5126}$$
 
     \end{enumerate}
 
