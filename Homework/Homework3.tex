@@ -20,11 +20,26 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We want to find the probability that both units failed. This can be expressed as event $A$ AND event $B$, indicating failure of the processors. Per our formulas, we know:
 
-      \item 
+        $$P[A|B]=\frac{P[A\cap B]}{P[B]}$$
 
-      \item 
+        Per the given information, we know that $P[A|B]=.3$ and $P[B]=.02$. Thus, we may calculate to get:
+
+        $$\boxed{P[A\cap B]=.006}$$
+
+      \item We may calculate the probability of no good units in five systems by simply raising part (a) to the power of 5 to get:
+
+        $$\boxed{P_5[A\cap B]=7.776\cdot10^{-12}}$$
+
+      \item The probability that there is a working unit in a single computer can be given by the complement of no working units. Thus, we see:
+
+        $$P[(A\cap B)^c]=1-.006=.994$$
+
+        We can then sum the possible combinations for the other two computers (at least one working or none working) to get:
+
+        $$P_3[(A\cap B)^c]=.994(.994^2+(.994)(.006)+.006^2)$$
+        $$\boxed{P_3[(A\cap B)^c]=.9881}$$
 
     \end{enumerate}
 
@@ -32,9 +47,31 @@
 
     \begin{enumerate}
 
-      \item 
+      \item The probability that the system does not fail may be expressed as:
 
-      \item 
+        $$P[F^c]=(1-p)^{20}$$
+
+        We can thus take the complement and say that failure will occur for:
+
+        $$P[F]=1-(1-p)^{20}$$
+
+        From the problem, the system failure rate is 20\%, which gives us:
+
+        $$1-(1-p)^{20}=.2$$
+
+        From here, we solve:
+
+        $$(1-p)^{20}=.8$$
+        $$1-p=\sqrt[20]{.8}$$
+        $$p=1-\sqrt[20]{.8}$$
+        $$\boxed{p=.011095}$$
+
+      \item Similar to part (a), we now solve for a failure rate of $.1$:
+
+        $$1-(1-p)^{20}=.1$$
+        $$(1-p)^{20}=.9$$
+        $$p=1-\sqrt[20]{.9}$$
+        $$\boxed{p=.0052542}$$
 
     \end{enumerate}
 
@@ -44,15 +81,30 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We can calculate this by multiplying the success rates together:
 
-      \item 
+        $$P_3=(.9)^2(.8)$$
+        $$\boxed{P_3=.648}$$
 
-      \item 
+      \item We want to calculate the probability of at least one of the components succeeding. This may be expressed as:
 
-      \item 
+        $$P_{1+}=\underbrace{2[(.9)(.1)(.2)]}_{\text{One router}}+\overbrace{[(.1)^2(.8)]}^{\text{Only switch}}+\underbrace{[(.9)^2(.2)]}_{\text{Both routers}}+\overbrace{2[(.9)(.8)(.1)]}^{\text{One router/one switch}}+.648$$
+        $$\boxed{P_{1+}=.998}$$
 
-      \item 
+      \item To find the odds of exactly one of the components passing, we simply subtract cases from above in which multiple devices pass. This gives us:
+
+        $$P_{1}=.998-2[(.9)(.8)(.1)]-[(.9)^2(.2)]-.648$$
+        $$\boxed{P_{1}=.044}$$
+
+      \item Since we know the probability that no components fail, we simply take the complement to find the probability that a component does fail:
+
+        $$P_3^c=1-.648$$
+        $$\boxed{P_3^c=.352}$$
+
+      \item Per our formulas, we can find $P[\text{all}|\text{one}]$ as:
+
+        $$P[\text{all}|\text{one}]=\frac{.648}{.998}$$
+        $$\boxed{P[\text{all}|\text{one}]=.6493}$$
 
     \end{enumerate}
 
