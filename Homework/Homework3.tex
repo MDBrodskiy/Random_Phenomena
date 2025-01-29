@@ -112,13 +112,56 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Given that $n$ can be the range of $[2,5]$, we know that the PMF must contain:
 
-      \item 
+        $$\left\{ \frac{c}{4},\frac{c}{8},\frac{c}{16},\frac{c}{32} \right\}$$
 
-      \item 
+        We know that the probabilities within a PMF must sum to 1, so we get:
 
-      \item 
+        $$\frac{c}{4}+\frac{c}{8}+\frac{c}{16}+\frac{c}{32}=1$$
+
+        We simplify to find:
+
+        $$8c+4c+2c+c=32$$
+        $$\boxed{c=\frac{32}{17}}$$
+
+      \item We can take the complement of the probability that two packets are transmitted to find:
+
+        $$P[3+]=1-\frac{1}{4}\left( \frac{32}{17} \right)$$
+        $$\boxed{P[3+]=\frac{7}{17}=.4118}$$
+
+      \item We can find the probability of an odd packet to be:
+
+        $$P[3+\cap Odd]=\left( \frac{1}{8}+\frac{1}{32} \right)\frac{32}{17}$$
+        $$P[3+\cap Odd]=\frac{5}{17}$$
+
+        We then divide by the probability of three or more to find:
+
+        $$\boxed{P[Odd|3+]=\frac{5}{7}=.7143}$$
+
+      \item We can express the probability for a given $n$ as:
+
+        $$P[C]=\sum_{n=2}^5 P_N(n)(.95)^n$$
+
+        This gives us the following values:
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|}
+           \hline
+           $n$ & $P_n[C]$\\
+           \hline
+           2 & .4247\\
+           \hline
+           3 & .2017\\
+           \hline
+           4 & .095824\\
+           \hline
+           5 & .045517\\
+           \hline
+           Total & .7677\\
+           \hline
+          \end{tabular}
+        \end{center}
 
     \end{enumerate}
 
@@ -126,15 +169,42 @@
 
     \begin{enumerate}
         
-      \item 
+      \item Based on the given information, we may express the probability of 2 or 3 servers as $c$. This gives us:
 
-      \item 
+        $$\left\{ \frac{c}{4},\frac{c}{2},c,c,\frac{c}{4} \right\}$$
+
+        We know the values need to sum to 1, which gives us:
+
+        $$\frac{2c}{4}+\frac{c}{2}+2c=1$$
+        $$\frac{c}{2}+\frac{c}{2}+2c=1$$
+        $$3c=1$$
+        $$\boxed{c=\frac{1}{3}}$$
+
+        Thus, we get:
+
+        $$\left\{ \frac{1}{12},\frac{1}{6},\frac{1}{3},\frac{1}{3},\frac{1}{12} \right\}$$
+
+      \item Based on the PMF above, we sum to get:
+
+        $$P[2+]=1-\frac{1}{12}-\frac{1}{6}$$
+        $$\boxed{P[2+]=.75}$$
 
     \end{enumerate}
 
-  \item
+  \item We may express the PMF of A as a binomial distribution, since the pulled resistor is either $A$ or not. This gives us $n=10$ and a probability of $p=1/3$, since each resistor is equally likely. This gives us the terms of the PMF as:
 
-  \item
+    $$\left( \begin{matrix} 10\\n\end{matrix} \right)(1/3)^{p}(2/3)^{p-n}$$
+
+    We iterate to get:
+
+    $$P_n(x)=\left\{.017342, .086708, .19509, .26012, .22761, .13656, .056902,$$$$.016258, .0030483, .00033870, .000016935 \}$$
+
+    From here, we find the probability of 2 or more $A$ resistors as:
+
+    $$P[2+]=1-.017342-.086708$$
+    $$\boxed{P[2+]=.896}$$
+
+  \item We begin by finding the probability that a generation-ending pair is combined. We may iterate through possible values of 
 
   \item
 
