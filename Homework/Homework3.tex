@@ -204,19 +204,63 @@
     $$P[2+]=1-.017342-.086708$$
     $$\boxed{P[2+]=.896}$$
 
-  \item We begin by finding the probability that a generation-ending pair is combined. We may iterate through possible values of 
+  \item We begin by finding the probability that a generation-ending pair is combined. We may iterate through possible values of $S_M$ and $S_L$ and find that the pairs with absolute differences greater than three, in form $(l,m)$ are:
+
+    $$(1,5),(1,8),(2,8),\text{ and }(3,8)$$
+
+    We know that the total quantity of possible pairs can be found by multiplying together the quantity of possible values of $l$ and $m$, which gives:
+
+    $$N=(4)(3)=12$$
+
+    Thus, we find the probability that a generation-ending pair is found is:
+
+    $$p=\frac{4}{12}=.33\bar{3}$$
+
+    We can write the PMF as:
+
+    $$\boxed{P_N(x)=\left( \frac{2}{3} \right)^{1-N}\left( \frac{1}{3} \right)}$$
+
+    We can find the probability that $N=5$ as:
+
+    $$P_5(x)=\left( \frac{2}{3} \right)^4\left( \frac{1}{3} \right)$$
+    $$\boxed{P_5(x)=.065844}$$
+
+    We may define the probability that $N>5$ as:
+
+    $$P_{>5}(x)=1-\sum_{n=1}^{5} P_N(x)$$
+    $$\boxed{P_{>5}(x)=.1317}$$
 
   \item
 
     \begin{enumerate}
 
-      \item 
+      \item We can define the PMF as:
 
-      \item 
+        $$\boxed{P_N(x)=\left( \begin{matrix} 20\\ N\end{matrix} \right)p^N(1-p)^{20-N}}$$
 
-      \item 
+      \item Using the above, we take that $N\leq 15$ and $p=.8$ to calculate the probability of rejection as:
 
-      \item 
+        $$P(\text{rejection}|p=.8)=\sum_{N=0}^{15}\left( \begin{matrix} 20\\ N\end{matrix} \right)(.8)^N(.2)^{20-N}$$
+
+        We iterate to find:
+        
+        $$\boxed{P(\text{rejection}|p=.8)=.3704}$$
+
+      \item Similar to part (b), we can find the probability that the claim is \underline{not} rejected given $p=.7$ by writing:
+
+        $$P(\text{not rejected}|p=.7)=1-\sum_{N=0}^{15}\left( \begin{matrix} 20\\ N\end{matrix} \right)(.7)^N(.3)^{20-N}$$
+
+        This gives us:
+
+        $$\boxed{P(\text{not rejected}|p=.7)=.2375}$$
+
+      \item We can see that (b) would decrease, since one less value (when $N=15$) is added to the probability, while the probability for (c) would increase, since this value is no longer subtracted. Thus, we find:
+
+        $$P_{b,\text{new}}=.3704 - \left( \begin{matrix}20\\15\end{matrix} \right)(.8)^{15}(.2)^{5}$$
+        $$\boxed{P_{b,\text{new}}=.1958}$$
+
+        $$P_{c,\text{new}}=.2375 + \left( \begin{matrix}20\\15\end{matrix} \right)(.7)^{15}(.3)^{5}$$
+        $$\boxed{P_{c,\text{new}}=.4164}$$
 
     \end{enumerate}
 
@@ -224,11 +268,34 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may observe that the PMF is simply a geometric distribution and can be written as ($n\geq 1$):
 
-      \item 
+        $$\boxed{P_N(x)=p^n(1-p)^{n-1}}$$
 
-      \item 
+      \item We can calculate the probability as:
+
+        $$P_3(x)=\sum_{n=1}^3 p^n(1-p)^{n-1}$$
+
+        We can expand this to get:
+
+        $$p+p(1-p)+p(1-p)^2\geq.95$$
+        $$-.95+p+p(1-p)+p(1-p)^2\geq0$$
+
+        Solving, we find that the minimal value of $p$ is:
+
+        $$\boxed{p\geq .6316}$$
+
+      \item Although the formula for the PMF remains the same, it is different in that $n$ is now capped, such that $1\leq n\leq 5$. With $p=.7$ we may write this as:
+
+        $$\boxed{P_N(x)=(.7)^n(.3)^{n-1},\quad 1\leq n\leq 5}$$
+
+        We can calculate the probability that delivery fails as:
+
+        $$P_{>5}(x)=1-\sum_{n=1}^5 (.7)^n(.3)^{n-1}$$
+
+        This gives us:
+
+        $$\boxed{P_{>5}(x)=.1143}$$
 
     \end{enumerate}
 
