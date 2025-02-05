@@ -42,6 +42,10 @@
 
         $$P_x(x)=\left\{ \begin{array}{ll} 1-p,&x=0\\p,&x=1\\0,&\text{otherwise}\end{array}$$
 
+        \item Expectation Value: $E[X]=p$
+
+        \item $\text{Var}[X]=p(1-p)$
+
     \end{itemize}
 
   \item The Binomial Random Variable
@@ -54,6 +58,10 @@
 
         $$P_x(k)=\left\{ \begin{array}{ll} \left( \begin{matrix} n\\k\end{matrix} \right)p^k(1-p)^{n-k},&0\leq k\leq n\\0,&\text{otherwise}\end{array}$$
 
+        \item Expectation Value: $E[X]=np$
+
+        \item $\text{Var}[X]=np(1-p)$
+
     \end{itemize}
 
   \item The Geometric Random Variable
@@ -65,6 +73,10 @@
       \item This can be expressed as:
 
         $$P_x(x)=\left\{ \begin{array}{ll} p(1-p)^{x-1},&x=1,2,3\cdots\\0,&\text{otherwise}\end{array}$$
+
+        \item Expectation Value: $E[X]=\frac{1}{p}$
+
+        \item $\text{Var}[X]=\frac{1-p}{p^2}$
 
     \end{itemize}
 
@@ -80,6 +92,10 @@
 
         \item The Poisson random variable can be described using the average arrival rate $a=\lambda T$
 
+        \item Expectation Value: $E[X]=\alpha$
+
+        \item $\text{Var}[X]=\alpha$
+
     \end{itemize}
 
   \item The Pascal or Negative Binomial Random Variable
@@ -91,6 +107,10 @@
       \item This can be expressed as:
 
         $$P_X(x)=\left\{ \begin{array}{ll} \left( \begin{matrix} x-1\\k-1\end{matrix} \right)p^k(1-p)^{x-k},&x=k,k+1,\cdots\\0,&\text{otherwise}\end{array}$$
+
+        \item Expectation Value: $E[X]=\frac{k}{p}$
+
+        \item $\text{Var}[X]=\frac{k(1-p)}{p^2}$
 
     \end{itemize}
 
@@ -104,6 +124,10 @@
 
         $$P_N(n)=\left\{ \begin{array}{ll} \frac{1}{l-k-1},&l-k=2,3,4,\cdots\\0,&\text{otherwise}\end{array}$$
 
+        \item Expectation Value: $E[X]=\frac{l+k}{2}$
+
+        \item $\text{Var}[X]=\frac{l-k}{12}(l-k+2)$
+
     \end{itemize}
 
   \item The Cumulative Distribution Function (CDF)
@@ -115,6 +139,16 @@
         $$F_x(x)=P[X\leq x]=\sum_{j:x_j\leq x}P_x(x_j)$$
 
       \item For any value $x$, $F_x(x)$ is the probability that the observed value of $X$ will be at most $x$
+
+    \end{itemize}
+
+  \item Variance
+
+    $$\text{Var}[X]=E[(X-\mu_x)^2]$$
+
+    \begin{itemize}
+
+      \item $\text{Var}[X_1+X_2+\cdots+X_n]=\text{Var}[X_1]+\text{Var}[X_2]+\cdots+\text{Var}[X_n]$
 
     \end{itemize}
 
