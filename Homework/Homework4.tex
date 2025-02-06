@@ -131,37 +131,51 @@
 
       \item We may write the CDF using a sum and the formula for a geometric distribution:
 
-        $$\boxed{\text{CDF}_K[n]=\sum_{n=1}^{n_K}(.05)(.95)^n}$$
+        $$\boxed{\text{CDF}_K[n]=\sum_{n=1}^{n_K}(.05)(.95)^{n-1}}$$
 
         Where $n$ represents the attempt number and $n_K$ is the number of attempts until an error is encountered.
 
       \item Let us find the probability of observing the expectation value:
 
-        $$P[K=E[K]]=(.05)(.95)^{20}$$
+        $$P[K=E[K]]=(.05)(.95)^{19}$$
 
         This gives us:
 
-        $$\boxed{P[K=20]=.017924}$$
+        $$\boxed{P[K=20]=.018868}$$
 
       \item We can find the probability that more attempts than expected are taken as:
 
-        $$P[K>20]=1-\sum_{n=1}^{20}(.05)(.95)^n$$
+        $$P[K>20]=1-\sum_{n=1}^{20}(.05)(.95)^{n-1}$$
 
         This gives us:
 
-        $$\boxed{P[K>20]=.3906}$$
+        $$\boxed{P[K>20]=.3585}$$
 
       \item On the other hand, we may find the probability that less attempts than expected are needed:
 
         $$P[K<20]=1-P[K>20]-P[K=20]$$
-        $$P[K<20]=1-.3906-.017924$$
-        $$\boxed{P[K<20]=.5915}$$
+        $$P[K<20]=1-.3585-.018868$$
+        $$\boxed{P[K<20]=.6226}$$
 
-      \item 
+      \item Using the standard deviation we obtained above, we may round the difference (or sum) of it and the expectation value to get::
 
-      \item 
+        $$P[(20-19.494)\leq K \leq (20+19.494)]=P[1\leq K\leq 39]$$
 
-      \item 
+        From here, we may use our formula to write:
+
+        $$P[1\leq K\leq 39]=\sum_{1}^{39} (.05)(.95)^{n-1}$$
+
+        Plugging this in to a solver, we get:
+
+        $$\boxed{P[1\leq K\leq 39]=.8647}$$
+
+      \item By Bayes' rule, we know that, since the two events are independent, the probability that there is success $\to$ success $\to$ failure is simply the probability given by two successes and a failure. We can then find the probability that the next three events are two successes and one failure to get:
+
+        $$\boxed{P[2,1]=(.95)^2(.05)=.045125}$$
+
+      \item Since we know that an error is expected to occur after twenty attempts, we would expected for there to be another error twenty attempts after an initial one. As such, with a 2-second request time, we may simply write the time between errors as:
+
+        $$\boxed{t=20(2)=40[\si{\second}]}$$
 
     \end{enumerate}
 
