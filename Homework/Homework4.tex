@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 4}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item Given the Poisson distribution with given mean of $\alpha=.1$ interruptions per minute gives us a PMF of:
+
+        $$\boxed{P_{\alpha}(n)=\frac{(.1)^ne^{-.1}}{n!}}$$
+
+      \item The expectation value is simply given as the average value, such that:
+
+        $$\boxed{E[X]=.1}$$
+
+        Furthermore, we know that the same value represents the standard deviation. Since we know that the standard deviation is the square root of the variance we get:
+
+        $$\sigma=\sqrt{.1}$$
+        $$\boxed{\sigma=.3162}$$
+
+      \item Given a 10 minute period, we may take $\alpha\to 10(.1)\to 1$. This gives us:
+
+        $$P_{10}(n)=\frac{(1)^ne^{-1}}{n!}$$
+
+        We want the probability of no events, so we may take $n\to 0$ to get:
+
+        $$P_{10}(0)=\frac{(1)^0e^{-1}}{0!}$$
+        $$\boxed{P_{10}(0)=.3679}$$
+
+      \item Given a 20 minute period, we may take $\alpha\to 20(.1)\to 2$. This gives us:
+
+        $$P_{20}(n)=\frac{(2)^ne^{-2}}{n!}$$
+
+        We want the probability of two or more events, so we may take the complement of 2, 1 or no events. This gives us:
+
+        $$P_{20}(>2)=1-\left(\frac{(2)^0e^{-2}}{0!}+\frac{(2)^1e^{-2}}{1!}+\frac{(2)^2e^{-2}}{2!}\right)$$
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item First and foremost, we see that this CDF is valid, since the probabilities add up to 100\%, or $1$.
+
+    \begin{enumerate}
+
+      \item We can find the first value as:
+
+        $$P[Y<3] = F[2]$$
+        $$\boxed{P[Y<3] =.25}$$
+
+        We can then find:
+
+        $$P[Y\leq 3]=F[3]$$
+        $$\boxed{P[Y\leq3] =.5}$$
+
+      \item We can see that:
+
+        $$P[Y< 4]=P[Y\leq 3]=F[3]$$
+        $$\boxed{P[Y< 4]=.5}$$
+
+        From here, we may find:
+
+        $$P[Y\geq 4]=1-P[Y<4]$$
+        $$\boxed{P[Y\geq 4]=.5}$$
+
+      \item Since there is no ``bump'' up at $y=2$, we may find:
+
+        $$\boxed{P[Y=2]=F[2]-F[1]=0}$$
+
+        Similarly, we may find:
+
+        $$\boxed{P[1\leq Y<3]=F[2]-F[1]=0}$$
+
+      \item We know that the PMF may be expressed as:
+
+        $$PMF(Y)=F[Y]-F[Y-1]$$
+
+        Using this, we construct:
+
+        $$\boxed{PMF(Y)=\left\{ \begin{array}{ll} .25, & y=1\\.25, & y=3\\.5, & y=4\\ 0, & \text{otherwise} \end{array}}$$
+
+    \end{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item We may observe that this is a geometric distribution, which means that the expectation may be written as:
+
+        $$E[K]=\frac{1}{p}=\frac{1}{.05}$$
+        $$\boxed{E[K]=20}$$
+
+        From here, we may find the variance:
+
+        $$\text{Var}[K]=\frac{1-p}{p^2}=\frac{.95}{.05^2}$$
+        $$\boxed{\text{Var}[K]=380}$$
+
+        And finally, we use this to find the standard deviation:
+
+        $$\sigma_K=\sqrt{\text{Var}[K]}=\sqrt{380}$$
+        $$\boxed{\sigma_K=19.494}$$
+
+      \item We may write the CDF using a sum and the formula for a geometric distribution:
+
+        $$\boxed{\text{CDF}_K[n]=\sum_{n=1}^{n_K}(.05)(.95)^n}$$
+
+        Where $n$ represents the attempt number and $n_K$ is the number of attempts until an error is encountered.
+
+      \item Let us find the probability of observing the expectation value:
+
+        $$P[K=E[K]]=(.05)(.95)^{20}$$
+
+        This gives us:
+
+        $$\boxed{P[K=20]=.017924}$$
+
+      \item We can find the probability that more attempts than expected are taken as:
+
+        $$P[K>20]=1-\sum_{n=1}^{20}(.05)(.95)^n$$
+
+        This gives us:
+
+        $$\boxed{P[K>20]=.3906}$$
+
+      \item On the other hand, we may find the probability that less attempts than expected are needed:
+
+        $$P[K<20]=1-P[K>20]-P[K=20]$$
+        $$P[K<20]=1-.3906-.017924$$
+        $$\boxed{P[K<20]=.5915}$$
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item 
+
+    \setcounter{enumi}{9}
+
+  \item 
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
