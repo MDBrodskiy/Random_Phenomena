@@ -27,6 +27,7 @@
     * [**Homework 2**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework2.pdf)
     * [**Homework 3**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework3.pdf)
     * [**Homework 4**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework4.pdf)
+    * [**Homework 5**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework5.pdf)
 * [**Exams**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Exams/)
 
 <!--
