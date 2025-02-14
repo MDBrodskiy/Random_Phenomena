@@ -20,25 +20,68 @@
 
     \begin{enumerate}
 
-      \item To be a valid CDF, we know that the terms continuously build until they sum to 1. In this case, all of the terms become 1 at $v=10$. Thus, we can take the sum as:
+      \item To be a valid CDF, we know that the terms continuously build until they sum to 1. In this case, all of the terms become 1 at $v=10$. Thus, we can differentiate to find the PDF:
 
-        $$c\sum_{n=2}^{9} (v-2)^2=1$$
+        $$f_V(v)=\frac{d}{dv}[F_V(v)]$$
+        $$f_V(v)=2c(v-2), 2\leq v<10$$
 
-        Iterating, we find:
+        We then know:
 
-        $$c(0 + 1 + 4 + 9 + 16 + 25 + 36 + 49)=1$$
+        $$\int_2^{10} 2c(v-2)\,dv=1$$
+
+        We can solve to get:
+
+        $$2c\left[ \frac{v^2}{2}-2v\Big|_2^{10} \right]=1$$
+        $$2c\left[ (50-2)-(20-4) \right]=1$$
+        $$64c=1$$
+
+        Which finally gets us:
+
+        $$\boxed{c=64}$$
+
+      \item We can then find the probability that the response time is greater than $5[\si{\milli\second}]$ as:
+
+        $$P(v>5)=1-F_V(v)$$
+        $$P(v>5)=1-\frac{1}{64}(5-2)^2$$
+        $$\boxed{P(v>5)=\frac{55}{64}}$$
+
+      \item We can then find the response time probability for between 5 and 8 milliseconds:
+
+        $$P(5\leq v<8)=F_V(8)-F_V(5)$$
+        $$P(5\leq v<8)=\frac{1}{64}[(8-2)^2-(5-2)^2]$$
+        $$\boxed{P(5\leq v<8)=\frac{27}{64}}$$
+
+      \item We can find this to be:
+
+        $$P(v>7|5\leq v\leq8)=\frac{P(7<v\leq 8)}{P(5\leq v\leq 8)}$$
+
+        We find the probability of the numerator:
+
+        $$P(7<v\leq 8)=F_V(8)-F_V(7)$$
+        $$P(7<v\leq 8)=\frac{1}{64}[(8-2)^2-(7-2)^2]$$
+        $$P(7<v\leq 8)=\frac{11}{64}$$
 
         This gives us:
 
-        $$\boxed{c=\frac{1}{140}}$$
+        $$P(v>7|5\leq v\leq8)=\frac{11/64}{27/64}$$
+        $$\boxed{P(v>7|5\leq v\leq8)=\frac{11}{27}}$$
 
-      \item 
+      \item To find the applicable value, we may write:
 
-      \item 
+        $$1-F_V(a)=.36$$
 
-      \item 
+        We expand this to write:
 
-      \item 
+        $$1-\frac{1}{64}(a-2)^2=.36$$
+
+        We then solve:
+
+        $$a=\sqrt{64(.64)}+2$$
+        $$a=\pm6.4+2$$
+
+        Since the time has to be positive, we find:
+
+        $$\boxed{a=8.4[\si{\milli\second}]}$$
 
     \end{enumerate}
 
@@ -46,9 +89,32 @@
 
     \begin{enumerate}
 
-      \item 
+      \item To be a valid PDF, we know:
 
-      \item 
+        $$\int_{-\infty}^{\infty} ae^{-.2|x|}\,dx=1$$
+
+        We expand:
+
+        $$\int_{-\infty}^{0} ae^{.2x}\,dx+\int_0^{\infty} ae^{-.2x}\,dx=1$$
+
+        This gives us:
+
+        $$ \frac{ae^{.2x}}{.2}\Big|_{-\infty}^0-\frac{ae^{-.2x}}{.2}\Big|_{0}^{\infty}=1$$
+
+        We continue to solve:
+
+        $$(5a-0)-(0-5a)=1$$
+        $$10a=1$$
+        $$\boxed{a=.1}$$
+
+      \item We know that the expectation value can be expressed as:
+
+        $$E[x]=\frac{1}{\lambda}$$
+
+        Where $\lambda$ is the coefficient of the exponent. Thus, we get:
+
+        $$E[x]=\frac{1}{.2}$$
+        $$\boxed{E[x]=5}$$
 
       \item 
 
