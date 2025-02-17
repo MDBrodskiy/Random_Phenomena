@@ -109,18 +109,67 @@
 
       \item We know that the expectation value can be expressed as:
 
-        $$E[x]=\frac{1}{\lambda}$$
+        $$E[x]=\int_{-\infty}^{\infty} xf_X(x)\,dx$$
 
-        Where $\lambda$ is the coefficient of the exponent. Thus, we get:
+        This gives us:
 
-        $$E[x]=\frac{1}{.2}$$
-        $$\boxed{E[x]=5}$$
+        $$E[x]=\frac{1}{10}\left[\int_{-\infty}^{0} xe^{.2x}\,dx+\int_0^{\infty}xe^{-.2x}\,dx\right]$$
+        $$\boxed{E[x]=0[\si{\micro\volt}]}$$
 
-      \item 
+        We may observe that, due to symmetry about the $x$ axis, the expected value is zero.
 
-      \item 
+      \item Once again, we break up the function to find the CDF in two regions. We begin with the first region:
 
-      \item 
+        $$F_X(x<0)=\int_{-\infty}^x .1e^{.2x}\,dx$$
+
+        This gives us:
+
+        $$F_X(x<0)=.5e^{.2x}\Big|_{-\infty}^x$$
+        $$F_X(x<0)=.5e^{.2x}$$
+
+        We then find the second region:
+
+        $$F_X(x\geq0)=\int_{-\infty}^0 .1e^{.2x}\,dx+\int_{0}^{x} .1e^{-.2x}\,dx$$
+
+        This gives us:
+
+        $$F_X(x\geq0)=.5e^{.2x}+\left[-.5e^{-.2x}\right]\Big|_0^{x}$$
+        $$F_X(x\geq0)=1-.5e^{-.2x}$$
+
+        Finally, we may express this as:
+
+        $$\boxed{F_X(x)=\left\{\begin{array}{ll} .5e^{.2x},& x<0\\ 1-.5e^{-.2x},&x\geq 0\end{array}}$$
+
+      \item We can calculate the former as:
+
+        $$P[X>0]=1-P[X\leq 0]$$
+        $$P[X>0]=1-\int_{-\infty}^0 f_X(x)\,dx$$
+
+        This gives us:
+
+        $$P[X>0]=1-\left[ .5e^{.2x} \right]\Big|_{-\infty}^{0}$$
+        $$\boxed{P[X>0]=.5}$$
+
+        Similarly, we may find:
+
+        $$P[X>2]=1-P[X\leq 2]$$
+
+        This gives us:
+
+        $$P[X>2]=1-P[X>0]-\int_0^2 .1e^{-.2x}\,dx$$
+
+        We continue to evaluate:
+
+        $$P[X>2]=1-.5-\left[-.5e^{-.2x}\right]\Big_0^2$$
+        $$P[X>2]=1-.5-[-.5e^{-.4}-(-.5)]$$
+        $$P[X>2]=.5e^{-.4}$$
+        $$\boxed{P[X>2]=.3352}$$
+
+      \item Given that the PDF is symmetrical, we may simply write:
+
+        $$P[|X|>2]=2P[X>2]$$
+        $$P[|X|>2]=2(.3352)$$
+        $$\boxed{P[|X|>2]=.6704}$$
 
     \end{enumerate}
 
@@ -128,15 +177,78 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Given that the PDF can be found as the differential of the CDF, we get:
 
-      \item 
+        $$f_X(x)=\frac{d}{dx}\left[ F_X(x) \right]$$
+        $$f_X(x)=\frac{1}{16}\frac{d}{dx}\left[ (x-2)^2 \right],\quad 2\leq x<6$$
 
-      \item 
+        This gives us:
 
-      \item 
+        $$\boxed{f_X(x)=\frac{x-2}{8},\quad 2\leq x<6}$$
 
-      \item 
+      \item We can find the expected value using the formula:
+
+        $$E[X]=\int_{-\infty}^{\infty} xf_X(x)\,dx$$
+
+        This gives us:
+
+        $$E[X]=\int_{-\infty}^{\infty} x\left( \frac{x-2}{8} \right)\,dx$$
+        $$E[X]=\frac{1}{8}\int_{2}^{6} \left( x^2-2x \right)\,dx$$
+
+        We evaluate to find:
+
+        $$E[X]=\frac{1}{8}\left[\frac{x^3}{3}-x^2\right]\Big|_2^6$$
+        $$E[X]=\frac{1}{8}\left[(72-36)-\left( \frac{8}{3}-4 \right)\right]$$
+        $$\boxed{E[X]=\frac{112}{24}=4.6\bar{6}[\si{\milli\second}]}$$
+
+        Using this mean value, we can find the variance as:
+
+        $$\text{Var}[X]=\int_2^6 (x-4.6\bar{6})^2f_X(x)\,dx$$
+
+        We evaluate to get:
+
+        $$\boxed{\text{Var}[X]=.88\bar{8}[\si{\milli\second\squared}]}$$
+
+      \item Using the PDF, we may find $P[X>4]=1-P[X\leq 4]$. This gives us:
+
+        $$P[X>4]=1-\int_2^4 f_X(x)\,dx$$
+        $$P[X>4]=1-\int_2^4 \frac{x-2}{8}\,dx$$
+
+        We evaluate to get:
+
+        $$P[X>4]=1-\frac{1}{16}(x^2-2x)\Big|_2^4$$
+        $$P[X>4]=1-\frac{1}{16}[(16-8)-(4-4)]$$
+        $$\boxed{P[X>4]=\frac{1}{2}=.5}$$
+
+        From here, we may determine the conditional probability of:
+
+        $$P[X>5|X>4]=\frac{P[X>5]}{P[X>4]}$$
+
+        From here, we find:
+
+        $$P[X>5]=1-\frac{1}{16}(x^2-2x)\Big|_2^5$$
+        $$P[X>5]=1-\frac{1}{16}[(25-10)-(4-4)]$$
+        $$\boxed{P[X>5]=\frac{1}{16}=.0625}$$
+
+        We then find:
+
+        $$P[X>5|X>4]=\frac{.0625}{.5}$$
+        $$\boxed{P[X>5|X>4]=.125}$$
+
+      \item We know that the PDF will scale such that:
+
+        $$f_{X|A}(x)=\frac{f_X(x)}{P[A]}$$
+
+        Thus, we can find:
+
+        $$P[A]=1-\frac{1}{16}(x^2-2x)\Big|_2^3$$
+        $$P[A]=1-\frac{1}{16}[(9-6)-(4-4)]\Big|_2^3$$
+        $$P[A]=\frac{13}{16}=.8125$$
+
+        Thus, we scale the initial pdf to get:
+
+        $$f_{X|A}(x)=\frac{16}{13}\left[ \frac{x-2}{8} \right]$$
+        $$\boxed{f_{X|A}(x)=\frac{2x-4}{13},\quad 3\leq x<6}$$
 
     \end{enumerate}
 
@@ -144,15 +256,68 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We know that the PDF is continuous and equivalent over the whole interval, and, thus, we may write:
+
+        $$f_X(x)=\frac{1}{a-(-a)},\quad -a\leq x\leq a$$
+        $$\boxed{f_X(x)=\frac{1}{2a},\quad -a\leq x\leq a}$$
 
       \item 
 
-      \item 
+        Given that we know the mean will be zero, we may write:
 
-      \item 
+        $$\text{Var}[X]=\int_{-a}^a (x-0)^2\frac{1}{2a}\,dx$$
+        $$\text{Var}[X]=\int_{-a}^a \frac{x^2}{2a}\,dx$$
 
-      \item 
+        We then evaluate:
+
+        $$\text{Var}[X]=\frac{x^3}{6a}\Big_{-a}^a$$
+        $$\text{Var}[X]=\left[\frac{a^3}{6a}-\left( -\frac{a^3}{6a} \right)\right]$$
+        $$\text{Var}[X]=\left[\frac{a^2}{6}+\frac{a^2}{6} \right]$$
+        $$\boxed{\text{Var}[X]=\frac{a^2}{3}}$$
+
+      \item We can write:
+
+        $$P\left[X>\frac{a}{2}|X>0\right]=\frac{P\left[X>\frac{a}{2}\right]}{P[X>0]}$$
+
+        We begin by finding:
+
+        $$P[X>0]=1-\frac{0-(-a)}{2a}$$
+        $$P[X>0]=\frac{1}{2}$$
+
+        We then find:
+
+        $$P\left[ X>\frac{a}{2} \right]=1-\frac{\frac{a}{2}-(-a)}{a-(-a)}$$
+        $$P\left[ X>\frac{a}{2} \right]=\frac{1}{4}$$
+
+        We then divide to get:
+
+        $$P\left[X>\frac{a}{2}|X>0\right]=\frac{.25}{.5}$$
+        $$\boxed{P\left[X>\frac{a}{2}|X>0\right]=\frac{1}{2}}$$
+
+      \item Given the uniform probability, we may simply double our value of $P\left[ X>\frac{a}{2} \right]$ to find:
+
+        $$P\left[ |X|>\frac{a}{2} \right]=2P\left[ X>\frac{a}{2} \right]$$
+
+        This then gives us the probability of a fault trigger as:
+
+        $$\boxed{P\left[ |X|>\frac{a}{2} \right]=\frac{1}{2}}$$
+
+      \item We begin by setting the equation appropriately to get:
+
+        $$2X^2>\frac{a^2}{3}$$
+
+        Solving this gives us:
+
+        $$|X|>\frac{a}{\sqrt{6}}$$
+
+        Thus, we want to find:
+
+        $$P\left[|X|>\frac{a}{\sqrt{6}}\right]=2P\left[ X>\frac{a}{\sqrt{6}} \right]$$
+
+        This gives us:
+
+        $$P\left[|X|>\frac{a}{\sqrt{6}}\right]=2\left[ 1-\frac{\frac{a}{\sqrt{6}}-(-a)}{2a} \right]$$
+        $$\boxed{P\left[|X|>\frac{a}{\sqrt{6}}\right]=.5918}$$
 
     \end{enumerate}
 
@@ -162,21 +327,66 @@
 
     \begin{enumerate}
 
-      \item 
+      \item For an exponential random variable, we know:
 
-      \item 
+        $$\lambda=\frac{1}{\mu}$$
+
+        Which gives us:
+
+        $$\lambda=\frac{1}{2}$$
+
+        Thus, we may write the PDF as:
+
+        $$\boxed{f_X(x)=.5e^{-.5x},\quad x>0}$$
+
+      \item First, we want to find the probability of the request taking less than two seconds:
+
+        $$P[X<2]=\int_0^2 .5e^{-.5x}\,dx$$
+        $$P[X<2]=-e^{-.5x}\Big|_0^2$$
+        $$P[X<2]=[-e^{-1}-(-1)]$$
+        $$\boxed{P[X<2]=.6321}$$
+
+        From here, since each request is independent, we simply find:
+
+        $$P[X_3<2]=(P[X<2])^3$$
+        $$P[X_3<2]=(.6321)^3$$
+        $$\boxed{P[X_3<2]=.2526}$$
 
       \item 
 
         \begin{enumerate}
 
-          \item 
+          \item Although the $\lambda$ value stays the same as the above, we define $n$ as the quantity of requests, or $3$, such that:
 
-          \item 
+            $$\boxed{Y=\text{Erlang}(3,.5)}$$
 
-          \item 
+          \item Using the Erlang distribution, we write:
 
-          \item 
+            $$\boxed{F_Y(y)=.0625y^2e^{-.5y}}$$
+
+          \item We can find the mean value as:
+
+            $$E[Y]=\int_0^{\infty} .0625y^2e^{-.5y}\,dy$$
+
+            We solve to get:
+
+            $$\boxed{E[Y]=6}$$
+
+            Then, we find the variance:
+
+            $$\text{Var}[Y]=\int_0^{\infty} .0625(y-6)^2y^2e^{-.5y}\,dy$$
+
+            Solving gives us:
+
+            $$\boxed{\text{Var}[Y]=12}$$
+
+          \item We can find the probability as:
+
+            $$P[Y<5]=\int_0^5 .0625y^2e^{-.5y}\,dy$$
+
+            Solving gives us:
+
+            $$\boxed{P[Y<5]=.45618}$$
 
         \end{enumerate}
 
@@ -188,13 +398,48 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Given that we want 95\% of all readings to be within $1^o$ of $\mu$, we can use the inverse normal function to find a z-score of:
 
-      \item 
+        $$\frac{x-\mu}{\sigma}=\pm 1.96$$
 
-      \item 
+        Furthermore, we know that:
 
-      \item 
+        $$x-\mu=\pm 1$$
+
+        We combine the two to get:
+
+        $$\pm 1.96\sigma=\pm 1$$
+        $$\boxed{\sigma=.5102}$$
+
+      \item Using our z-score formula, we may write:
+
+        $$z=\frac{25-\mu}{1}=25-\mu$$
+
+        We know that:
+
+        $$P[Y\leq 25^o]=P[Z\leq 25-\mu]$$
+
+        Given the probability for $Y\leq25^o$, we can use the inverse normal function to write:
+
+        $$z=1.4985$$
+
+        This gives us:
+
+        $$25-\mu=1.4985$$
+        $$\boxed{\mu=23.501^o}$$
+
+      \item Similarly, we may find:
+
+        $$z=-1.9954$$
+
+        From this, we write:
+
+        $$-\mu=-1.9954$$
+        $$\boxed{\mu=1.9954^o}$$
+
+      \item If the probability above or below a certain point is equal to 1/2, then we are at the mean. Therefore, we may write:
+
+        $$\boxed{\mu=25^o}$$
 
     \end{enumerate}
 
