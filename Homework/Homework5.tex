@@ -447,13 +447,87 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We want to find a value for which $90\%$ are less than or equal to, in terms of storage. We may begin by taking the inverse of the normal to find the $z$ score:
 
-      \item 
+        $$\text{invnorm}(.9)=1.2816$$
 
-      \item 
+        Now that we know the $z$ score, we may write:
 
-      \item 
+        $$\frac{X-500}{100}=1.2816$$
+
+        Solving, we find:
+
+        $$X=100(1.2816)+500$$
+
+        Given that we want 90\% of users to be 30 GB below the set threshold, we may find: 
+
+        $$\boxed{W_{Th}=658.16[\si{GB}]}$$
+
+      \item We can calculate this by transferring to a $z$ score:
+
+        $$z=\frac{600-500}{100}$$
+        $$z=1$$
+
+        And then taking the normal function to get:
+
+        $$\%_{\text{users}}=1-.8413$$
+        $$\boxed{\%_{\text{users}}=15.87\%}$$
+
+      \item Given that we can write the initial PDF as:
+
+        $$f_W(w)=\text{NormalPDF}(500,100)$$
+
+        We can write the conditional probability as:
+
+        $$f_{W|A}(w)=\frac{P[A]}{\text{NormalPDF}(500,100)}$$
+
+        As such, we use our probability from above to write:
+
+        $$f_{W|A}(w)=\left[\frac{6.303}{100\sqrt{2\pi}}e^{-\frac{(w-500)^2}{20000}}\right]^{-1}$$
+
+        This can be simplified to:
+
+        $$\boxed{f_{W|A}(w)=39.769e^{\frac{(w-500)^2}{20000}}}$$
+
+      \item We can shift the PDF such that:
+
+        $$E[(W-600)|A]=E[W|W>600]-600$$
+
+        For a normal distribution, this gives us:
+
+        $$E[W|W>600]=\mu+\sigma\left[ \frac{\Phi(z)}{1-\Phi(z)} \right]$$
+
+        We use the previously-obtained $z$-score to get:
+
+        $$E[W|W>600]=500+100\left[ \frac{\phi(1)}{1-\Phi(1)} \right]$$
+
+        We can find:
+
+        $$\phi(1)=\frac{1}{\sqrt{2\pi}}e^{-.5}$$
+        $$\phi(1)=.242$$
+
+        We know from earlier that:
+
+        $$1-\Phi(1)=.1587$$
+
+        Thus, we get:
+
+        $$E[W|W>600]=500+100\left[ \frac{.242}{.1587} \right]$$
+        $$E[W|W>600]=652.47[\si{GB}]$$
+
+        From here, we can obtain the value we want:
+
+        $$E[(W-600)|A]=652.47-600$$
+        $$\boxed{E[(W-600)|A]=52.47[\si{GB}]}$$
+
+        The expected revenue per user is then:
+
+        $$R=52.47\cdot.05$$
+        $$R=2.6235\$\left[ \si{Dollars\over Users} \right]$$
+
+        With 10,000 users, we get:
+
+        $$\boxed{R_{10k}=26,235\$\left[ \si{Dollars} \right]}$$
 
     \end{enumerate}
 
@@ -461,15 +535,98 @@
 
     \begin{enumerate}
 
-      \item 
+      \item The event $X\geq t$ is the same as $A_1\cap A_2\cap A_3$
 
-      \item 
+      \item Given that the events are independent, along with the statement from part (a), we may write that an individual event can be expressed as:
 
-      \item 
+        $$P[A_i]=e^{-.01t}$$
+
+        And therefore $P[X\geq t]$ can be expressed as:
+
+        $$P[X\geq t]=\prod_{i=1}^3 P[A_i]$$
+        $$P[X\geq t]=\left( e^{-.01t} \right)^3$$
+        $$\boxed{P[X\geq t]=e^{-.03t}}$$
+
+        Since the above is the probability that $X$ is greater than or equal to a certain time, we can find $F_X(t)=P[X< t]$ as:
+
+        $$\boxed{F_X(t)=1-e^{-.03t}}$$
+
+        We can then differentiate to find:
+
+        $$\boxed{f_X(t)=.03e^{-.03t}}$$
+
+        We may observe that this is an exponential (Laplace) random distribution.
+
+      \item Per our distribution rules we know:
+
+        $$\lambda=.03$$
+
+        And also:
+
+        $$E[X]=\lambda^{-1}$$
+
+        This gives us:
+
+        $$\boxed{E[X]=33.33\bar{3}}$$
+
+        Furthermore, we know:
+
+        $$\text{Var}[X]=\frac{1}{\lambda^2}$$
+
+        This gives us:
+
+        $$\boxed{\text{Var}[X]=1111.11}$$
 
     \end{enumerate}
 
   \item
+
+    For the first plan, we may simply write:
+
+    $$\boxed{Y_A=.05X}$$
+
+    For the second plan, we have a two-step system, for which we get:
+
+    $$\boxed{Y_B=\left\{\begin{array}{ll} .2,& X\leq 10\\ .05X-.3,& X>10\end{array}}$$
+
+    Given the scaling factor, we may write the expected value of $Y_A$ as:
+
+    $$E[Y_A]=E[.05X]$$
+    $$E[Y_A]=.05E[X]$$
+    $$\boxed{E[Y_A]=.05\mu}$$
+
+    For the expectation value of the second plan, the process is a bit more complex. Given that the expectation value is an exponential random variable, we can begin by writing the PDF:
+
+    $$f_X(x)=\frac{1}{\mu}e^{-\frac{x}{\mu}}$$
+
+    From here, we can write out the expectation values as:
+
+    $$Y_B=.2P[X\leq10]+E[.05X-.3|X>10]P[X>10]$$
+
+    From the PDF, we may integrate to get the PDF as:
+
+    $$F_X(X\leq x)=1-e^{-\frac{x}{\mu}}$$
+
+    As such, we may find:
+
+    $$P[X\leq 10]=1-e^{-\frac{10}{\mu}}\quad\text{ and }\quad P[X>10]=e^{-\frac{10}{\mu}}$$
+
+    We plug this into our expectation value formula above to get:
+
+    $$Y_B=.2\left( 1-e^{-\frac{10}{\mu}} \right)+(.2+.05\mu)e^{-\frac{10}{\mu}}$$
+
+    We simplify to get:
+
+    $$\boxed{Y_B=.2+.05\mu e^{-\frac{10}{\mu}}}$$
+
+    We then use the above formulas at $\mu=5,8[\si{GB}]$ to get:
+
+    $$\$_{A,5}=.05(5)=.25[\si{Dollars}]$$
+    $$\$_{A,8}=.05(8)=.4[\si{Dollars}]$$
+    $$\$_{B,5}=.2+.05(5)e^{-2}=.2338[\si{Dollars}]$$
+    $$\$_{B,8}=.2+.05(8)e^{-(10/8)}=.3146[\si{Dollars}]$$
+
+    \underline{As such, Plan B is better in both cases}
 
 \end{enumerate}
 
