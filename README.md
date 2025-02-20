@@ -22,6 +22,7 @@
 * [**Notes**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/)
     * [**Lecture 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Lecture1.pdf)
     * [**Lecture 2**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Lecture2.pdf)
+    * [**Lecture 3**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Lecture3.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/)
     * [**Homework 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework1.pdf)
     * [**Homework 2**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Notes/Homework2.pdf)
