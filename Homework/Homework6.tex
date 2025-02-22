@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 6}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We begin by sketching the CDF:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW6-1}
+      \caption{CDF of Given Function}
+      \label{fig:1}
+    \end{figure}
+
+    \begin{enumerate}
+
+      \item From the CDF, we may conclude:
+
+        $$P[X<1]=F_X(X^-=1)-F_X(X=0)$$
+        $$\boxed{P[X<1]=0}$$
+
+        And then:
+
+        $$P[X\leq 1]=F_X[X=1]-F_X[X=0]$$
+        $$P[X\leq 1]=.25-0$$
+        $$\boxed{P[X\leq 1]=.25}$$
+
+      \item Since the given probability occurs in the continuous portion, we can find that:
+
+        $$P[X<2]=P[X\leq 2]$$
+
+        Furthermore, we can write:
+
+        $$P[X\leq 2]=F_X[X=2]-F_X[X=0]$$
+        $$P[X\leq 2]=\frac{25}{60}-0$$
+        $$\boxed{P[X\leq 2]=P[X<2]=.416\bar{6}}$$
+
+      \item We continue to find:
+
+        $$P[X>5]=1-F_X(X^-=5)$$
+        $$P[X>5]=1-.916\bar{6}$$
+        $$\boxed{P[X>5]=.083\bar{3}}$$
+
+        Since the right side is not in the continuous portion, we get:
+
+        $$P[X\geq5]=1-F_X(X^+=5)$$
+        $$P[X\geq5]=1-1$$
+        $$\boxed{P[X\geq5]=0}$$
+
+      \item With the given range, we may find:
+
+        $$P[1<X<2]=F_X(X^-=2)-F_X(X^+=1)$$
+        $$P[1<X<2]=.416\bar{6}-.25$$
+        $$\boxed{P[1<X<2]=.16\bar{6}}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We may begin by finding a PDF for the continuous region:
+
+        $$f_{W,2}(w)=(1-f_{W,1})\lambda e^{-\lambda w}$$
+
+        Furthermore, we know that:
+
+        $$f_{W,1}(w)=.3$$
+
+        Given the expectation value given successful communications, we may know:
+
+        $$E[W]=\frac{1}{\lambda}$$
+
+        This gives us:
+
+        $$\lambda=\frac{1}{3}[\si{min}]$$
+
+        Thus, the pdf becomes:
+
+        $$\boxed{f_{W}(w)=\left\{\begin{array}{ll} \dfrac{3}{10}, & w=0\\\\ \dfrac{7}{30}e^{-\frac{1}{3}w} & w>0 \end{array}}$$
+
+      \item We may find the CDF by integrating to get:
+
+        $$F_{W}(w)=\left\{\begin{array}{ll} \dfrac{3}{10}, & w=0\\\\ 1-.7e^{-\frac{1}{3}w} & w>0 \end{array}$$
+
+        We may note that this is continuous, so we may simply write:
+
+        $$\boxed{F_{W}(w)=1-.7e^{-\frac{1}{3}w}\quad w\geq 0}$$
+
+      \item We can write the expectation value as:
+
+        $$E[W]=\int_{0}^{\infty} wf_W(w)\,dw$$
+
+        This gives us:
+
+        $$E[W]=.3(w\to0)+\int_{0^+}^{\infty} \frac{7w}{30}e^{-\frac{1}{3}w}\,dw$$
+
+        We evaluate to get:
+
+        $$E[W]=.3(0)+2.1$$
+        $$\boxed{E[W]=2.1[\si{min}]}$$
+
+        We can then find the variance using the law of total variance as:
+
+        $$\text{Var}[W]=E[\text{Var}[W|S]]+\text{Var}[E[W|S]]$$
+
+        Where $S$ corresponds to success/failure. Thus, we use the information given:
+
+        $$E[W|S]=3\quad\text{ and }\quad \text{Var}[W|S]=\frac{1}{\lambda^2}=9$$
+
+        From here, we can get:
+
+        $$\text{Var}[E[W|X]]=(3-2.1)^2\cdot S\cdot S^c$$
+        $$\text{Var}[E[W|X]]=(3-2.1)^2\cdot (.7)\cdot (.3)$$
+        $$\text{Var}[E[W|X]]=.1701$$
+
+        This gives us:
+
+        $$\text{Var}[W]=(9)(.7)+.1701$$
+        $$\boxed{\text{Var}[W]=6.4701[\si{min\squared}]}$$
+
+      \item To define this probability, we simply use the CDF to write:
+
+        $$P[W<1]=F_W(w=1^-)$$
+
+        We can find this using:
+
+        $$P[W<1]=1-.7e^{-1/3}$$
+        $$\boxed{P[W<1]=.4984}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
