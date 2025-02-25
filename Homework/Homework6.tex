@@ -113,24 +113,18 @@
         $$E[W]=.3(0)+2.1$$
         $$\boxed{E[W]=2.1[\si{min}]}$$
 
-        We can then find the variance using the law of total variance as:
+        We can then find the variance using:
 
-        $$\text{Var}[W]=E[\text{Var}[W|S]]+\text{Var}[E[W|S]]$$
-
-        Where $S$ corresponds to success/failure. Thus, we use the information given:
-
-        $$E[W|S]=3\quad\text{ and }\quad \text{Var}[W|S]=\frac{1}{\lambda^2}=9$$
+        $$\text{Var}[W]=E[W^2]-E[W]^2$$
 
         From here, we can get:
 
-        $$\text{Var}[E[W|X]]=(3-2.1)^2\cdot S\cdot S^c$$
-        $$\text{Var}[E[W|X]]=(3-2.1)^2\cdot (.7)\cdot (.3)$$
-        $$\text{Var}[E[W|X]]=.1701$$
+        $$\text{Var}[W]=\int_0^{\infty} \frac{7w^2}{30}e^{-\frac{1}{3}w}\,dw-2.1^2$$
 
         This gives us:
 
-        $$\text{Var}[W]=(9)(.7)+.1701$$
-        $$\boxed{\text{Var}[W]=6.4701[\si{min\squared}]}$$
+        $$\text{Var}[W]=12.6-4.41$$
+        $$\boxed{\text{Var}[W]=8.19[\si{min\squared}]}$$
 
       \item To define this probability, we simply use the CDF to write:
 
