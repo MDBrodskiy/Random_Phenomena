@@ -38,6 +38,42 @@
 
     \end{itemize}
 
+  \item Sum of Two Random Variables
+
+    \begin{itemize}
+
+      \item $Z=X+Y$
+
+      \item $E[Z]=E[X]+E[Y]$ ($\mu_Z=\mu_X+\mu_Y$)
+
+      \item $\text{Var}[Z]=\text{Var}[X+Y]=E[((X+Y)-(\mu_X+\mu_Y)^2)]$
+
+      \item $\text{Var}[Z]=E[((X-\mu_X)^2+2(X-\mu_X)(Y-\mu_Y)+(Y-\mu_Y)^2)]$
+
+      \item $\text{Var}[Z]=\text{Var}[X]+\text{Var}[Y]+2E[(X-\mu_X)(Y-\mu_Y)]$
+
+      \item $\text{Var}[Z]=\text{Var}[X]+\text{Var}[Y]+2\text{Cov}(X,Y)$
+
+      \item $\text{Var}[Z]=E[((X-\mu_X)^2+2(X-\mu_X)(Y-\mu_Y)+(Y-\mu_Y)^2)]$
+
+      \item Covariance:
+
+        $$\text{Cov}(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$
+
+    \end{itemize}
+
+  \item The Correlation Coefficient
+
+    $$\rho(X,Y)=\frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
+
+    \begin{itemize}
+
+      \item Standardizes covariance to range from -1 to 1, making it unitless and easier to interpret
+
+      \item When the correlation coefficient magnitude is close to unity, it implies a high level of correlation
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}
