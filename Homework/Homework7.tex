@@ -128,13 +128,46 @@
 
     \begin{enumerate}
 
-      \item
+      \item We may find the CDF as:
 
-      \item 
+        $$F_X(x)=\int_0^x f_X(x)\,dx$$
 
-      \item 
+        This gives us:
 
-      \item 
+        $$F_X(x)=\int_0^x \frac{x}{50}\,dx$$
+
+        We evaluate to get:
+
+        $$F_X(x)=\left[ \frac{x^2}{100} \right]\Big|_0^x$$
+        $$\boxed{F_X(x)=\left\{\begin{array}{ll} \frac{x^2}{100},& 0\leq x\leq 10\\ 1,& x>10\\ 0, & \text{otherwise}\end{array}}$$
+
+      \item Given the independence of $X_1$ and $X_2$, we may express this probability as:
+
+        $$P[X_1\leq 5, X_2\leq 5]=\left( F_X(5) \right)^2$$
+
+        This gives us:
+
+        $$P[X_1\leq 5, X_2\leq 5]=\left( \frac{1}{4} \right)^2$$
+        $$\boxed{P[X_1\leq 5, X_2\leq 5]=\frac{1}{16}}$$
+
+      \item Once again, due to the independence, we may write:
+
+        $$F_W[w]=P[W\leq w]=\left(P[X \leq w]\right)^2$$
+
+        Since we are given $w=5$, we simply use the answer from (b):
+
+        $$F_W[5]=\left(P[X \leq 5]\right)^2$$
+        $$\boxed{F_W[5]=\frac{1}{16}}$$
+
+      \item We may observe that the CDF may be written as the product of the two individual CDFs; however, because they are independent, identically distributed systems, we obtain:
+
+        $$F_W(w)=F_{X_1}(w)F_{X_2}(w)$$
+        $$F_W(w)=F_{X}(w)F_{X}(w)\quad (X_1=X_2)$$
+        $$F_W(w)=[F_{X}(w)]^2$$
+
+        This gives us:
+
+        $$\boxed{F_W(w)=\left\{\begin{array}{ll} \frac{w^4}{10000}, & 0\leq w\leq 10\\ 1, & w>10\\0, & \text{otherwise}\end{array}}$$
 
     \end{enumerate}
 
@@ -160,9 +193,42 @@
         $$P[X\leq 1]=\frac{1}{12}\left[x^2+4x\right]\Big|_0^1$$
         $$\boxed{P[X\leq 1]=\frac{5}{12}}$$
 
-      \item 
+      \item We may write the conditional PDF as:
 
-      \item 
+        $$f_{XY|A}(x,y)=\frac{f_{XY}(x,y)}{f(A)}$$
+
+        As determined in part (a), this gives us:
+
+        $$f_{XY|A}(x,y)=\frac{(x+y)/24}{5/12},\quad 0\leq x\leq 1,\,\, 0\leq y\leq4$$
+
+        We simplify to get:
+
+        $$\boxed{f_{XY|A}(x,y)=\frac{x+y}{10},\quad 0\leq x\leq 1,\,\, 0\leq y\leq4}$$
+
+      \item Using the result from part (b), we may write the conditional marginal PDFs as:
+
+        $$f_{X|A}(x)=\int_0^4 f_{XY|A}(x,y)\,dy$$
+        $$f_{Y|A}(y)=\int_0^1 f_{XY|A}(x,y)\,dx$$
+
+        We expand this to get:
+
+        $$f_{X|A}(x)=\int_0^4 \frac{x+y}{10}\,dy$$
+        $$f_{Y|A}(y)=\int_0^1 \frac{x+y}{10}\,dx$$
+
+        We then solve:
+
+        $$f_{X|A}(x)=\frac{2xy+y^2}{20}\Big|_0^4$$
+        $$\boxed{f_{X|A}(x)=\frac{2x+4}{5},\quad 0\leq x\leq 1}$$
+
+        $$f_{Y|A}(y)=\frac{x^2+2xy}{20}\Big|_0^1$$
+        $$\boxed{f_{Y|A}(y)=\frac{1+2y}{20},\quad 0\leq y\leq 4}$$
+
+        We can then use the first result to find:
+
+        $$E[X|A]=\int_0^1 x\left( \frac{2x+4}{5} \right)\,dx$$
+        $$E[X|A]=\int_0^1 \frac{2x^2+4x}{5} \right)\,dx$$
+        $$E[X|A]=\frac{2x^3+6x^2}{15} \Big|_0^1$$
+        $$\boxed{E[X|A]=\frac{8}{15}}$$
 
     \end{enumerate}
 
@@ -172,7 +238,25 @@
 
     \begin{enumerate}
 
+      \item We can find $f_Y(y)$ as:
+
+        $$f_Y(y)=\int_{-2}^y \frac{1}{8}\,dx$$
+        $$f_Y(y)=\left[\frac{1}{8}\right\Big|_{-2}^y$$
+        $$\boxed{f_Y(y)=\frac{y}{8}+\frac{1}{4}}$$
+
       \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
 
       \item 
 
@@ -204,31 +288,74 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may begin by expressing the joint PMF as a matrix:
 
-      \item 
+        $$P_{XY}(x,y)=\left[ \begin{matrix} 0 & 1/8 & 3/8 & 1/4\\ 0 & 0 & 1/8 & 0\\ 0 & 0 & 0 & 1/8\\ 0 & 0 & 0 & 0\end{matrix} \right]$$
 
-      \item 
+        Summing the columns, we see that $X=\left\{ 2,3,4 \right\}$ with probabilities $\left\{ \frac{1}{8}, \frac{1}{2}, \frac{3}{8} \right\}$, respectively. Similarly, summing the rows shows us that $Y=\left\{ 1,2,3 \right\}$  with probabilities $\left\{ \frac{3}{4}, \frac{1}{8}, \frac{1}{8} \right\}$, respectively. Using this gives us:
 
-      \item 
+        $$E[X]=\frac{1}{8}(2)+\frac{1}{2}(3)+\frac{3}{8}(4)$$
+        $$E[Y]=\frac{3}{4}(1)+\frac{1}{8}(2)+\frac{1}{8}(3)$$
 
-      \item 
+        We solve to get:
 
-    \end{enumerate}
+        $$\boxed{E[X]=\frac{13}{4}}$$
+        $$\boxed{E[Y]=\frac{11}{8}}$$
 
-  \item
+      \item To find the variances, we begin by writing:
 
-    \begin{enumerate}
+        $$E[X^2]=\frac{1}{8}(2)^2+\frac{1}{2}(3)^2+\frac{3}{8}(4)^2$$
+        $$E[Y^2]=\frac{3}{4}(1)^2+\frac{1}{8}(2)^2+\frac{1}{8}(3)^2$$
 
-      \item 
+        This gives us:
 
-      \item 
+        $$E[X^2]=11$$
+        $$E[Y^2]=\frac{19}{8}$$
 
-      \item 
+        We then find the variance as:
 
-      \item 
+        $$\text{Var}(X)=E[X^2]-(E[X])^2$$
+        $$\text{Var}(Y)=E[Y^2]-(E[Y])^2$$
 
-      \item 
+        This gives us:
+
+        $$\text{Var}(X)=11-\frac{169}{16}$$
+        $$\text{Var}(Y)=\frac{19}{8}-\frac{121}{64}$$
+
+        And finally:
+
+        $$\boxed{\text{Var}(X)=.4375}$$
+        $$\boxed{\text{Var}(Y)=.4844}$$
+
+      \item We can find the correlation as:
+
+        $$r_{X,Y}=E[XY]=\sum\sum xyP(x,y)$$
+
+        We expand this to get:
+
+        $$r_{X,Y}=\frac{1}{8}(2)(1)+\frac{3}{8}(3)(1)+\frac{1}{4}(4)(1)+\frac{1}{8}(3)(2)+\frac{1}{8}(4)(3)$$
+
+        Solving gives us:
+
+        $$\boxed{r_{X,Y}=\frac{37}{8}=4.625}$$
+
+      \item The covariance may be written as:
+
+        $$\text{Cov}(X,Y)=E[XY]-E[X]E[Y]$$
+
+        Using our obtained values gives us:
+
+        $$\text{Cov}(X,Y)=4.625-\left( 3.25 \right)(1.375)$$
+        $$\boxed{\text{Cov}(X,Y)=.1562}$$
+
+      \item We can then write the correlation coefficient as:
+
+        $$\rho_{X,Y}=\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}$$
+
+        This gives us:
+
+        $$\rho_{X,Y}=\frac{.1562}{\sqrt{(.4375)(.4844)}}$$
+        $$\boxed{\rho_{X,Y}=.3394}$$
 
     \end{enumerate}
 
