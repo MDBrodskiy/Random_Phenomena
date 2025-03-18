@@ -241,16 +241,79 @@
       \item We can find $f_Y(y)$ as:
 
         $$f_Y(y)=\int_{-2}^y \frac{1}{8}\,dx$$
-        $$f_Y(y)=\left[\frac{1}{8}\right\Big|_{-2}^y$$
-        $$\boxed{f_Y(y)=\frac{y}{8}+\frac{1}{4}}$$
+        $$f_Y(y)=\left[\frac{x}{8}\right]\Big|_{-2}^y$$
+        $$\boxed{f_Y(y)=\frac{y}{8}+\frac{1}{4},\quad -2\leq y\leq 2}$$
 
-      \item 
+      \item We may apply the conditional PDF formula to get:
 
-      \item 
+        $$f_{X|Y}(x,y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
 
-      \item 
+        Substituting in our known values, we get:
 
-      \item 
+        $$f_{X|Y}(x,y)=\frac{1}{8}\cdot\frac{8}{y+2}$$
+        $$\boxed{f_{X|Y}(x,y)=\frac{1}{y+2},\quad x\leq y\leq 2}$$
+
+      \item We may see that the above conditional PDF is simply a uniform distribution with $b=y$ and $a=-2$. As such, we may state that:
+
+        $$\boxed{E[X|Y=y]=\frac{y-2}{2}}$$
+
+      \item We may write the covariance as:
+
+        $$\text{Cov}(X,Y)=E[XY]-E[X]E[Y]$$
+
+        We find the expectation values, first finding the marginal PDF of $x$:
+
+        $$f_X(x)=\int_x^2 \frac{1}{8}\,dy$$
+        $$f_X(x)=\left[\frac{y}{8}\right]\Big|_x^2$$
+
+        This gives us:
+
+        $$f_X(x)=\frac{1}{4}-\frac{x}{8}$$
+
+        We then compute the expectation values of each. First, we write:
+
+        $$E[X]=\int_{-2}^2 x\left[\frac{1}{4}-\frac{x}{8}\right]\,dx$$
+        $$E[Y]=\int_{-2}^2 y\left[\frac{y}{8}+\frac{1}{4}\right]\,dy$$
+
+        We solve:
+
+        $$E[X]=\frac{1}{8}\int_{-2}^2 2x-x^2\,dx$$
+        $$E[X]= \frac{1}{8}\left[x^2-\frac{x^3}{3}\right]\Big|_{-2}^2$$
+        $$\boxed{E[X]= -\frac{2}{3}}$$
+
+        $$E[Y]=\frac{1}{8}\int_{-2}^2 y(y+2)\,dy$$
+        $$E[Y]= \frac{1}{8}\left[\frac{y^3}{3}+2y\right]\Big|_{-2}^2$$
+        $$\boxed{E[Y]= \frac{2}{3}}$$
+
+        We then find:
+
+        $$E[XY]=\int_{-2}^2\int_x^2 \frac{xy}{8}\,dy\,dx$$
+        $$\boxed{E[XY]=0}$$
+
+        Thus, we this gives us a covariance of:
+
+        $$\boxed{\text{Cov}(X,Y)=\frac{4}{9}}$$
+
+      \item We can break apart this covariance:
+
+        $$\text{Cov}(4Y, 2X+2Y+.1)\to 4\text{Cov}(Y,2X+2Y+.1)$$
+        $$4\text{Cov}(Y,2X+2Y+.1)\to 8\text{Cov}(Y,X+Y+.05)$$
+        $$8\text{Cov}(Y,X+Y+.05)\to 8\text{Cov}(Y,X+Y)$$
+        $$8\text{Cov}(Y,X+Y)\to 8[\text{Cov}(Y,X)+\text{Cov}(Y,Y)]$$
+
+        And finally, we find:
+
+        $$8[\text{Cov}(Y,X)+\text{Cov}(Y,Y)]\to 8\text{Cov}(X,Y)+8\text{Var}(Y)$$
+
+        Thus, we find the variance of $Y$ as:
+
+        $$\text{Var}(Y)=\int_{-2}^2 \left( y-\frac{2}{3} \right)\left( \frac{y}{8}+\frac{1}{4} \right)\,dy$$
+        $$\boxed{\text{Var}(Y)=\frac{8}{9}}$$
+
+        This gives us:
+
+        $$\boxed{\text{Cov}(4Y,2X+2Y+.1)=\frac{96}{9}}$$
+
 
     \end{enumerate}
 
@@ -258,13 +321,53 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Given that the distribution is uniform, we can write the PDF as:
 
-      \item 
+        $$f_{Y|X}(y|x)=\frac{1}{x},\quad 0\leq y\leq x$$
 
-      \item 
+        Thus, we can apply our expectation value formula to get:
 
-      \item 
+        $$\boxed{E[Y|X=x]=\frac{x+0}{2}=\frac{x}{2}}$$
+
+        We apply the variance formula in a similar manner to say:
+
+        $$\text{Var}(Y|X)=\frac{(x-0)^2}{12}$$
+        $$\boxed{\text{Var}(Y|X=x)=\frac{x^2}{12}}$$
+
+      \item Now, we find the joint PDF. First and foremost, given its uniform nature, we may state that:
+
+        $$f_X(x)=1,\quad 0\leq x\leq 1$$
+
+        Using our formula for $f_{Y|X}(y|x)$ from (a), and combining it with the joint PDF formula:
+
+        $$f_{XY}(x,y)=f_{Y|X}(y|x)f_X(x)$$
+
+        We multiply and combine to get:
+
+        $$\boxed{f_{XY}(x,y)=\frac{1}{x},\quad 0\leq y\leq x\leq 1}$$
+
+      \item We find the marginal PDF of $y$ by integrating over $x$:
+
+        $$f_Y(y)=\int_y^1 f_{XY}(x,y)\,dx$$
+
+        We substitute our formula and solve:
+
+        $$f_Y(y)=\int_y^1 \frac{1}{x}\,dx$$
+        $$f_Y(y)=\ln(x)\Big|_y^1$$
+        $$\boxed{f_Y(y)=\ln\left( \frac{1}{y} \right),\quad 0\leq y\leq 1}$$
+
+      \item We then apply the marginal PDF to find the expectation value:
+
+        $$E[Y]=\int_0^1 y\ln\left( \frac{1}{y} \right)\,dy$$
+
+        Using integration by parts, we find:
+        
+        $$\boxed{E[Y]=\frac{1}{4}[\si{\mega\watt}]}$$
+
+        We then find the variance as:
+
+        $$\text{Var}(Y)=\int_0^1 (y-.25)^2\ln\left( \frac{1}{y} \right)\,dy$$
+        $$\boxed{\text{Var}(Y)=.04861[\si{\mega\watt\squared}]}$$
 
     \end{enumerate}
 
@@ -272,15 +375,96 @@
 
     \begin{enumerate}
 
-      \item 
+      \item No actual problem, only problem statement
 
-      \item 
+      \item We know that:
 
-      \item 
+        $$\rho_{XY}(x,y)=\frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
 
-      \item 
+        As such, we may write:
 
-      \item 
+        $$\text{Cov}(U,V)=\text{Cov}(aX,bY)=ab\text{Cov}(X,Y)$$
+
+        We solve the first equation to get:
+
+        $$\text{Cov}(X,Y)=\left( \frac{1}{4} \right)\sqrt{16^2}$$
+        $$\text{Cov}(X,Y)=4$$
+
+        As such, we conclude:
+
+        $$\boxed{\text{Cov}(U,V)=4ab}$$
+
+      \item We know variances shift according to:
+
+        $$\text{Var}(aX)=a^2\text{Var}(X)$$
+
+        Accordingly, we may write:
+
+        $$\rho_{UV}(U,V)=\frac{\text{Cov}(U,V)}{\sqrt{\text{Var}(aX)\text{Var}(bY)}}$$
+
+        Thus, we incorporate known values to get:
+
+        $$\rho_{UV}(U,V)=\frac{4ab}{ab\sqrt{16}}$$
+        $$\boxed{\rho_{UV}(U,V)=1}$$
+
+      \item We may rewrite $W$ as:
+
+        $$W=aX-bY$$
+
+        We want $W$ and $X$ to be uncorrelated, or:
+
+        $$\text{Cov}(W,X)=0$$
+
+        We expand this to get:
+
+        $$\text{Cov}(aX-bY,X)=0$$
+        $$a\text{Cov}(X,X)-b\text{Cov}(Y,X)=0$$
+
+        As such, we see that we want:
+
+        $$a\text{Var}(X)=b\text{Cov}(X,Y)$$
+
+        We know both values, so we write:
+
+        $$16a=4b$$
+
+        We conclude that, for $W$ and $X$ to be uncorrelated, we want:
+
+        $$\boxed{\frac{b}{a}=4}$$
+
+      \item We may expand the expectation value of $Z$ as:
+
+        $$E[Z]=E[cX+dY]$$
+        $$E[cX+dY]=cE[X]+dE[Y]$$
+
+        As given, we take $c\to 1$ and plug in our known values to get:
+
+        $$E[Z]=2+d$$
+
+        We then write the variance as:
+
+        $$\text{Var}(Z)=\text{Var}(cX+dY)$$
+        $$\text{Var}(Z)=\text{Var}(cX)+\text{Var}(dY)+2\text{Cov}(cX,dY)$$
+        $$\text{Var}(cX)+\text{Var}(dY)+2\text{Cov}(cX,dY)=c^2\text{Var}(X)+d^2\text{Var}(Y)+2cd\text{Cov}(X,Y)$$
+
+        As such, we enter known values to get:
+
+        $$\text{Var}(Z)=16+16d^2+8d$$
+
+        Substituting into the SNR equation, we get:
+
+        $$\text{SNR}=\frac{4+4d+d^2}{16+8d+16d^2}$$
+
+        Plotting the signal-to-noise ratio against $d$, we see:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW7-8e}
+          \caption{SNR versus $d$ Plot}
+          \label{fig:1}
+        \end{figure}
+
+        As such, the SNR is maximized when $\boxed{d=.285714}$.
 
     \end{enumerate}
 
