@@ -1,0 +1,187 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 8}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We may write the correlation coefficient as:
+
+    $$\rho_{XY}=\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}$$
+
+    Given that $Y=X+2Z$, we obtain:
+
+    $$\text{Cov}(X,Y)=\text{Cov}(X,X+2Z)$$
+
+    We break this apart to get:
+
+    $$\text{Cov}(X,X+2Z)=\text{Cov}(X,X)+2\text{Cov}(X,Z)$$
+    $$\text{Cov}(X,X+2Z)=\text{Var}(X)+2\text{Cov}(X,Z)$$
+
+    Additionally, we get:
+
+    $$\text{Var}(Y)=\text{Var}(X+2Z)$$
+    $$\text{Var}(X+2Z)=3\text{Var}(X)+4\text{Var}(Z)+8\text{Cov}(X,Z)$$
+
+    Thus, the expression becomes:
+
+    $$\rho_{XY}=\frac{\text{Var}(X)+2\text{Cov}(X,Z)}{\sqrt{\text{Var}(X)[3\text{Var}(X)+4\text{Var}(Z)+8\text{Cov}(X,Z)]}}$$
+
+    The final step is to calculate the covariance between $X$ and $Z$. Since it is stated that the two are independent, we arrive at:
+
+    $$\text{Cov}(X,Z)=0$$
+
+    And thus:
+
+    $$\rho_{XY}=\frac{\text{Var}(X)}{\sqrt{\text{Var}(X)[3\text{Var}(X)+4\text{Var}(Z)]}}$$
+
+    We plug in our known values to get:
+
+    $$\rho_{XY}=\frac{16}{\sqrt{16[3(16)+4(4)]}}$$
+    $$\boxed{\rho_{XY}=\frac{1}{2}}$$
+
+    Since the correlation coefficient is not zero, \underline{$X$ and $Y$ are not independent}.
+
+    Now, given $W=2X-Z$, we want to find:
+
+    $$E[W]=E[2X-Z]$$
+    $$\text{Var}(W)=\text{Var}(2X-Z)$$
+    $$\text{Cov}(W,Y)=\text{Cov}(2X-Z,X+2Z)$$
+
+    For the expectation value, we simply decompose to get:
+
+    $$E[W]=2E[X]-E[Z]$$
+    $$E[W]=2(2)-1$$
+    $$\boxed{E[W]=3}$$
+
+    The variance can be expanded to get:
+
+    $$\text{Var}(W)=4\text{Var}(X)+\text{Var}(Z)-4\cancel{\text{Cov}(X,Z)}$$
+    $$\text{Var}(W)=4(16)+4$$
+    $$\boxed{\text{Var}(W)=68}$$
+
+    Finally, we find the covariance as:
+
+    $$\text{Cov}(W,Y)=\text{Cov}(2X,X+2Z)-\text{Cov}(Z, X+2Z)$$
+    $$\text{Cov}(W,Y)=2\text{Var}(X) + 3\text{Cov}(X,Z)-2\text{Var}(Z)$$
+
+    Plugging in values, we get:
+
+    $$\text{Cov}(W,Y)=2(16) + \cancel{3\text{Cov}(X,Z)}-2(4)$$
+    $$\boxed{\text{Cov}(W,Y)=24}$$
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+    \setcounter{enumi}{4}
+
+  \item \textbf{Extra Credit}
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+
