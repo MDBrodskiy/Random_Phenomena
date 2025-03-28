@@ -34,6 +34,7 @@
     * [**Computational Homework 1**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/ComputationalHW1.m)
     * [**Homework 7**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/Homework7.pdf)
     * [**Homework 8**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/Homework8.pdf)
+    * [**Computational Homework 2**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/ComputationalHW2.m)
 * [**Exams**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Exams/)
 
 <!--
