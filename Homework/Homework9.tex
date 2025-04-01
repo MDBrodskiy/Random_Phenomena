@@ -1,0 +1,412 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 9}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Since it is given that $X,Y\in[0,1]$, we find that the range of $W=\text{Max}(X,Y)\to \boxed{W\in[0,1]}$. Therefore, we write:
+
+        $$\boxed{S_W=[0,1]}$$
+
+      \item Given that $w$ is the upper bound of $x$ and/or $y$, we may write:
+
+        $$F_W(w)=\int_0^w\int_0^w 4xy\,dx\,dy$$
+
+        We evaluate this to get:
+
+        $$F_W(w)=4\int_0^wy\int_0^w x\,dx\,dy$$
+        $$F_W(w)=4\left[\frac{y^2}{2}\right]\Big|_0^w\left[ \frac{x^2}{2} \right]\Big|_0^w$$
+        $$\boxed{F_W(w)=\left\{ \begin{array}{ll} w^4, & 0\leq w<1\\ 1, & w\geq 1\\ 0, & \text{otherwise}\end{array}}$$
+
+        From here, we know that:
+
+        $$f_W(w)=\frac{d}{dw}[F_W(w)]$$
+
+        This gives us:
+
+        $$\boxed{f_W(w)=4w^3,\quad 0\leq w<1}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Given that $y\geq x$, we know that the lowest point for $W$ will occur when $y=x$, or $W=0$. Similarly, the biggest difference occurs when $y=1$ and $x=0$, which produces $W=1$. Thus, we write:
+
+        $$\boxed{S_W=[0,1]}$$
+
+      \item From here, we may write:
+
+        $$F_W(w)=\int_0^1\int_0^{y-w} 6x\,dx\,dy$$
+
+        We evaluate to get:
+
+        $$F_W(w)=6\int_0^1[x^2/2]\Big|_0^{y-w}\,dy$$
+        $$F_W(w)=3\int_0^1(y-w)^2\,dy$$
+        $$F_W(w)=3\int_0^1y^2-2yw+w^2\,dy$$
+        $$F_W(w)=y^3-3y^2w+3w^2y\Big|_0^1$$
+        $$\boxed{F_W(w)=\left\{\begin{array}{ll} 1-3w+3w^2, & 0\leq w\leq1\\ 1, & w>1\\ 0, & \text{otherwise}\end{array}}$$
+
+        We then differentiate to get:
+
+        $$\boxed{f_W(w)=6w-3,\quad 0\leq w\leq 1}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We can express the PDF of $Y$ using the law of total probability as:
+
+        $$f_Y(y)=P[Z=1]f_x(y)+P[Z=-1]f_x(-y)$$
+
+        Substituting our values, since we know that $X$ is normal with $\mu=0$ and $\sigma^2=1$, we get:
+
+        $$f_Y(y)=\frac{1}{\sqrt{2\pi}}\left[ pe^{-\frac{y^2}{2}}+(1-p)e^{-\frac{y^2}{2}} \right]$$
+
+        Distributing and simplifying gives us:
+
+        $$\boxed{f_Y(y)=\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}}$$
+
+        Thus, we see that this returns to simply being a normal distribution.
+
+      \item When we take $\mu\to 10$, this gives us:
+
+        $$f_Y(y)=\frac{1}{\sqrt{2\pi}}\left[ pe^{-\frac{(y-10)^2}{2}}+(1-p)e^{-\frac{(-y-10)^2}{2}} \right]$$
+
+        We simplify to get:
+
+        $$\boxed{f_Y(y)=\frac{1}{\sqrt{2\pi}}\left[ pe^{-\frac{(y-10)^2}{2}}+(1-p)e^{-\frac{(y+10)^2}{2}} \right]}$$
+
+    \end{enumerate}
+
+    \setcounter{enumi}{4}
+
+  \item We begin by finding the moment generating function of $X$. We can write this as:
+
+    $$\phi_x(s)=E[e^{sX}]$$
+    $$E[e^{sX}]=\sum_{x=0}^{\infty}e^{sx}\left( \frac{e^{-\alpha_1}\alpha_1^x}{x!} \right)$$
+
+    We rearrange to get:
+
+    $$E[e^{sX}]=e^{-\alpha_1}\sum_{x=0}^{\infty}\left( \frac{(e^{s}\alpha_1)^x}{x!} \right)$$
+
+    We know that the series expansion for an exponential is:
+
+    $$e^x\to\sum_{n=0}^{\infty} \frac{x^n}{n!}$$
+
+    As such, we get:
+
+    $$\boxed{\phi_x(s)=e^{\alpha_1(e^s-1)}}$$
+
+    Similarly, we find the MGF of $Y$:
+
+    $$\boxed{\phi_y(s)=e^{\alpha_2(e^s-1)}}$$
+
+    Since $X$ and $Y$ are independent, the MGF of $Z=X+Y$ will simply be the product of the individual MGFs:
+
+    $$\boxed{\phi_z(s)=e^{(\alpha_1+\alpha_2)(e^{s}-1)}}$$
+
+    Note that, if we were to apply the same process to find the MGF of $Z$ as we did for $X$ and $Y$, we would still get the same answer.
+
+    \setcounter{enumi}{6}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Using the moment generating function, we know that:
+
+        $$E[Y]=\phi_y(0)'$$
+
+        As such, we differentiate to get:
+
+        $$\phi_y'(s)=\frac{2}{(1-s)^3}$$
+
+        We evaluate at $s=0$, which gives us:
+
+        $$\boxed{E[Y]=2}$$
+
+        Similarly, we may write:
+
+        $$E[Y^2]=\phi_y(0)''$$
+
+        We differentiate a second time to get:
+
+        $$\phi_y''(s)=\frac{6}{(1-s)^4}$$
+
+        Evaluating at $s=0$, we find:
+
+        $$\boxed{E[Y^2]=6}$$
+
+      \item Similar to (a), we find:
+
+        $$E[V]=\phi_w(0)'$$
+        $$E[V]=\frac{3}{(1-0)^4}$$
+        $$\boxed{E[V]=3}$$
+
+        This gives us:
+
+        $$E[W]=E[Y]+E[V]$$
+        $$E[W]=2+3$$
+        $$\boxed{E[W]=5}$$
+
+        We then find:
+
+        $$E[V^2]=\phi_w(0)''$$
+        $$E[V^2]=\frac{12}{(1-0)^5}$$
+        $$\boxed{E[V^2]=12}$$
+
+        From here, we may write:
+
+        $$\text{Var}[W]=\text{Var}[Y]+\text{Var}[V]$$
+
+        This gives us:
+
+        $$\text{Var}[W]=(6-2^2)+(12-3^2)$$
+        $$\boxed{\text{Var}[W]=5}$$
+
+      \item Given that $Y$ and $V$ are independent, we may take their product to find:
+
+        $$\phi_w(s)=\frac{1}{(1-s)^5}$$
+
+        We may observe that, accordingly, $W=\text{Erlang}(\lambda=1,k=5)$, which makes sense, given that $Y=\text{Erlang}(1,2)$ and $V=\text{Erlang}(1,3)$. As such, we get:
+
+        $$\boxed{f_W(w)=\frac{w^4e^{-w}}{4!},\quad w\geq 0}$$
+
+      \item We may re-express this as:
+
+        $$W_1=\frac{1}{2}\left( Y+V \right)\to W_1=\frac{1}{2}W$$
+
+        Accordingly, we get:
+
+        $$E[W_1]=\frac{1}{2}E[W]$$
+        $$\boxed{E[W_1]=2.5}$$
+
+        And then:
+
+        $$\text{Var}[W_1]=\frac{1}{4}\text{Var}[W]$$
+        $$\boxed{\text{Var}[W_1]=1.25}$$
+
+        And finally:
+
+        $$\boxed{f_{W_1}(w_1)=\frac{2(2w_1)^4e^{-2w_1}}{4!},\quad w_1\geq0}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Knowing our results for a standard normal distribution, may write the moment generating function as:
+
+        $$\phi_x(s)=E[e^{sX}]$$
+        $$\boxed{\phi_x(s)=e^{\frac{s^2}{2}}}$$
+
+      \item Given that each $X_n$ is independent of the others, we can multiply the MGFs $k$ times to write:
+
+        $$E[e^{sV}|K=k]=e^{\frac{ks^2}{2}}$$
+
+        From here, we use the given probabilities to write:
+
+        $$\phi_v(s)=\sum_{k=1}^{\infty} P_K(k)e^{\frac{ks^2}{2}}$$
+
+        This gives us:
+
+        $$\boxed{\phi_v(s)=\frac{.8e^{\frac{s^2}{2}}}{1-.2e^{\frac{s^2}{2}}}}$$
+
+        Before evaluating the expected value with the MGF, we may find the value to be:
+
+        $$E[V]=E[E[V|K]]$$
+
+        From above, we know:
+
+        $$E[V|K]=kE[X]$$
+
+        And since each $X$ is normally distributed, $E[X]=0$. Therefore, we may conclude:
+
+        $$\boxed{E[V]=0}$$
+
+        We confirm using the MGF:
+
+        $$\phi_v(s)'=\frac{.8se^{\frac{s^2}{2}}}{\left( 1-.2e^{\frac{s^2}{2}} \right)^2}$$
+
+        At $s=0$ this gives:
+
+        $$\phi_v(0)'=0$$
+
+        And therefore, we confirm:
+
+        $$\boxed{E[V]=\phi_v'(0)=0}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We may observe that the given distribution is binomial, such that we may write:
+
+        $$K_{50}=\left( \begin{matrix} 50\\ k \end{matrix} \right).7^k.3^{1-k}$$
+
+        Accordingly, we may find:
+
+        $$E[K_{50}]=np$$
+        $$E[K_{50}]=50(.7)$$
+        $$\boxed{E[K_{50}]=35\text{ video packets}}$$
+
+      \item Again, given this is a binomial distribution, we write:
+
+        $$\sigma_{50}=\sqrt{np(1-p)}$$
+        $$\sigma_{50}=\sqrt{35(.3)}$$
+        $$\boxed{\sigma_{50}=3.2404\text{ video packets}}$$
+
+      \item We begin by standardizing to a normal variable, $Z$:
+
+        $$Z=\frac{X-35}{3.2404}$$
+
+        We take the limits as $30\leq X\leq 40$, such that:
+
+        $$\frac{-5}{3.2404}\leq Z\leq \frac{5}{3.2404}$$
+        $$-1.543\leq Z\leq 1.543$$
+
+        We can find this probability by first finding:
+
+        $$P[Z\geq -1.543]=.9386$$
+
+        We then subtract the upper bound:
+
+        $$P[30\leq X\leq40]=.9386-P[Z\geq 1.543]$$
+        $$P[30\leq X\leq40]=.9386-.061415$$
+        $$P[30\leq X\leq40]=.8772$$
+
+      \item We begin by using continuity correction to write:
+
+        $$P[a\leq K_n\leq b]\approx P\left[ \frac{a-\mu}{\sigma}\leq Z\leq \frac{b-\mu}{\sigma} \right]$$
+
+        This gives us:
+
+        $$P[30\leq K_n\leq 50]\approx P\left[ 29.5\leq K_n\leq 40.5 \right]$$
+        $$P[30\leq K_n\leq 50]\approx P\left[ -1.6973\leq Z\leq 1.6973 \right]$$
+
+        We can use the inverse normal operation to find:
+
+        $$P[30\leq K_n\leq 50]\approx P[Z\leq 1.6973]-P[Z\leq -1.6973]$$
+        $$P[30\leq K_n\leq 50]\approx .955-.045$$
+        $$\boxed{P[30\leq K_n\leq 50]\approx .91}$$
+
+    \end{enumerate}
+
+    \setcounter{enumi}{10}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We know that the expectation value for a single test is given by the inverse of its probability, or:
+
+        $$E[X_n]=\frac{1}{p}$$
+
+        Given that we sum together a series consisting of $n$ of these geometric distributions, we can find:
+
+        $$E[K_n]=E[X_1]+E[X_2]+\cdots+E[X_n]=\frac{n}{p}$$
+
+        This gives us:
+
+        $$E[K_n]=\frac{900}{.9}$$
+        $$\boxed{E[K_n]=1000\text{ tests}}$$
+
+      \item Similarly, the variance of $K_n$ may be written as:
+
+        $$\text{Var}[K_n]=n\text{Var}[X_n]$$
+
+        We may find:
+
+        $$\text{Var}[X_n]=\frac{1-p}{p^2}$$
+        $$\text{Var}[X_n]=\frac{.1}{.9^2}$$
+        $$\boxed{\text{Var}[X_n]=.1235\text{ tests}^2}$$
+
+        We then multiply by $n$ to find:
+
+        $$\boxed{\text{Var}[K_n]=111.11\text{ tests}^2}$$
+
+      \item Using the CLT for \underline{at least} 1000 tests, we write:
+
+        $$Z=\frac{1000-\mu}{\sigma}=\frac{1000-1000}{\sqrt{111.11}}$$
+        $$Z=0$$
+
+        From here, we apply a normal distribution to write:
+
+        $$\boxed{P[Z\geq 0]=.5}$$
+
+    \end{enumerate}
+
+  \item We can begin by finding:
+
+    $$E[V]=20-10E[W^3]$$
+
+    We can find this by using:
+
+    $$E[W^3]=\int_{-1}^1 \frac{w^3}{2}\,dw$$
+    $$E[W^3]=\frac{w^4}{8}\Big|_{-1}^1$$
+    $$E[W^3]=0$$
+
+    This gives us:
+
+    $$E[V]=20$$
+
+    Similarly, we write:
+
+    $$\text{Var}[V]=100\text{Var}[W^3]$$
+    $$\text{Var}[V]=100\int_{-1}^1 (w^3)^2\cdot\frac{1}{2}\,dw$$
+    $$\text{Var}[V]=100\int_{-1}^1 \frac{w^6}{2}\,dw$$
+    $$\text{Var}[V]=100\left[\frac{w^7}{14}\right]\Big|_{-1}^1$$
+    $$\text{Var}[V]=100/7\approx 14.285$$
+
+    As such, we may write expressions for $X$ as:
+
+    $$E[X]=5\cdot30\cdot E[V]$$
+    $$\sigma_X=5\cdot\sqrt{30\cdot \text{Var}[V]}$$
+
+    These give us:
+
+    $$E[X]=3000\text{ Mb}$$
+    $$\sigma_X=103.51\text{ Mb}$$
+    $$\text{Var}[X]=5\cdot30\cdot \text{Var}[V]$$
+
+    We then want to find:
+
+    $$P\left[ X\geq95 \right]\to P\left[ Z\geq \frac{X-\mu}{\sigma}\right]$$
+
+    We enter our values to find:
+
+    $$Z=\frac{95-3000}{103.51}$$
+    $$Z=-28.065$$
+
+    From here, we find:
+
+    $$P\left[ X\geq 95 \right]= 1-P[Z\leq -28.065]$$
+    $$\boxed{P\left[ X\geq 95 \right]\approx 1}$$
+
+\end{enumerate}
+
+\end{document}
+
