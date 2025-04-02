@@ -383,28 +383,28 @@
 
     As such, we may write expressions for $X$ as:
 
-    $$E[X]=5\cdot30\cdot E[V]$$
-    $$\sigma_X=5\cdot\sqrt{30\cdot \text{Var}[V]}$$
+    $$E[X]=30\cdot E[V]$$
+    $$\sigma_X=\sqrt{30\cdot \text{Var}[V]}$$
 
     These give us:
 
-    $$E[X]=3000\text{ Mb}$$
-    $$\sigma_X=103.51\text{ Mb}$$
-    $$\text{Var}[X]=5\cdot30\cdot \text{Var}[V]$$
+    $$E[X]=600\text{ Mb}$$
+    $$\sigma_X=20.73\text{ Mb}$$
 
     We then want to find:
 
-    $$P\left[ X\geq95 \right]\to P\left[ Z\geq \frac{X-\mu}{\sigma}\right]$$
+    $$P\left[ \frac{S_{30}}{6}\geq95 \right]\to P\left[ Z\geq \frac{X-\mu}{\sigma}\right]$$
+    $$P\left[ S_{30}\geq 570 \right]\to P\left[ Z\geq \frac{X-\mu}{\sigma}\right]$$
 
-    We enter our values to find:
+    We apply the central limit theorem to get:
 
-    $$Z=\frac{95-3000}{103.51}$$
-    $$Z=-28.065$$
+    $$Z=\frac{570-600}{20.73}$$
+    $$Z=-1.4472$$
 
     From here, we find:
 
-    $$P\left[ X\geq 95 \right]= 1-P[Z\leq -28.065]$$
-    $$\boxed{P\left[ X\geq 95 \right]\approx 1}$$
+    $$P\left[ S_{30}\geq 570 \right]= 1-P[Z< -1.4472]$$
+    $$\boxed{P\left[ X\geq 95 \right]\approx .9261}$$
 
 \end{enumerate}
 
