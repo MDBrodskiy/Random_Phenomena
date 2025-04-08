@@ -1,0 +1,287 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 10}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+  \item
+
+    \begin{enumerate}
+
+      \item Taking $t\to100/3[\si{\micro\second}]$, we obtain:
+
+        $$s_1=5\cos(10^4\pi (100/3)\cdot10^{-6})$$
+        $$s_1=5\cos(\pi/3)$$
+        $$s_1=2.5$$
+
+        We can then find $Y_1(t)$ by tacking on the noise term to get:
+
+        $$\boxed{Y_1(t)\to N(2.5,1)}$$
+
+        Which means that this gives a normal distribution with a mean of 2.5 and standard deviation of 1.
+
+      \item Similarly, we take $t\to100[\si{\micro\second}]$ to get:
+
+        $$s_2=5\cos(10^4\pi 200\cdot10^{-6})$$
+        $$s_2=5\cos(2\pi)$$
+        $$s_2=5$$
+
+        This gives us:
+
+        $$\boxed{Y_2(t)\to N(5,1)}$$
+
+        Or a normal distribution with mean 5 and standard deviation 1.
+
+      \item Given that $s(t)$ is static, we know that the covariance depends solely on the noise. This gives us:
+
+        $$\text{Cov}(Y_1,Y_2)=\text{Cov}(N_1,N_2)$$
+
+        Since $N_1$ and $N_2$ are normal functions independent of each other, we find:
+
+        $$\text{Cov}(Y_1,Y_2)=\text{Cov}(N_1,N_2)=0$$
+
+        Which means that $Y_1$ and $Y_2$ are \underline{independent}
+
+      \item Summing the two distributions 
+
+    \end{enumerate}
+
+    \setcounter{enumi}{3}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item From the fact that $C(\tau)\neq C(-\tau)$, we may observe that this is \underline{not a valid} \underline{autocovariance function for a WSS random process}
+
+      \item Although the given function is even, it does not satisfy the positive-definite requirement. That is, is does not follow:
+
+        $$\sum_{i=1}^n\sum_{j=1}^n c_ic_j\mathcal{R}_x(\tau_i,\tau_j)\geq 0$$
+
+        If we take $\tau_1=-1$ and $\tau_2=-2$, then we get:
+
+        $$-c_1^2-2c_2^2$$
+
+      We observe that this is less than zero, and, therefore, this is \underline{not a valid}\\ \underline{autocovariance function for a WSS random process}
+
+      \item The function is even and non-negative for all of $\tau$, and it is positive definite. Therefore, we conclude that this is \underline{a valid autocovariance function for a WSS random process}. Note: we may verify that it is positive definite by showing that the sum would yield:
+
+        $$c_ic_j\to \frac{1}{|\tau_1|}\frac{1}{|\tau_2|}$$
+
+      Which must be positive.
+
+      \item We may observe that the function is even, non-negative for all of $\tau$, and is positive definite. Therefore, we conclude that this \underline{is a valid autocovariance function for a} \underline{WSS random process}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We may observe that $X(t)$ \underline{is not periodic}, since the autocorrelation function does not contain a periodic term
+
+      \item The function is not periodic, so we use the autocorrelation. We want to take $\tau\to \infty$; however, since $\tau$ is bounded, in this case, we take $\tau\to6$:
+
+        $$E[X]=3-\frac{1}{2}(6)$$
+        $$\boxed{E[X]=0}$$
+
+      \item We may write the expected power as:
+
+        $$E[X^2(t)]=\mathcal{R}_{XX}(0)$$
+
+        This gives us:
+
+        $$E[X^2(t)]=3-\frac{1}{2}(0)$$
+        $$\boxed{E[X^2(t)]=3}$$
+
+      \item We can express this using the value of the uniform distribution to get:
+
+        $$P[X(t=1)>1]=\int_1^3\frac{1}{3-(-3)}\,dx$$
+        $$P[X(t=1)>1]=\int_1^3\frac{1}{6}\,dx$$
+        $$P[X(t=1)>1]=\frac{x}{6}\Big|_1^3$$
+        $$P[X(t=1)>1]=\frac{3-1}{6}$$
+        $$\boxed{P[X(t=1)>1]=\frac{1}{3}}$$
+
+      \item We can break this up to write:
+
+        $$E[(X(1)+X(2)+X(3))^2]=E[X^2(1)]+E[X^2(2)]+E{X^2(3)]+$$
+        $$2E[X(1)X(2)]+2E[X(2)X(3)]+2E[X(1)X(3)]$$
+
+        This is equivalent to:
+
+        $$E[(X(1)+X(2)+X(3))^2]=3\mathcal{R}_{XX}(0)+4\mathcal{R}_{XX}(1)+2\mathcal{R}_{XX}(2)$$
+
+        We evaluate to get:
+
+        $$E[(X(1)+X(2)+X(3))^2]=3\left[ 3 \right]+4\left[ \frac{5}{2} \right]+2[2]$$
+        $$\boxed{E[(X(1)+X(2)+X(3))^2]=23}$$
+
+      \item Expanding, we get:
+
+        $$E[Y]=2E[X]+3$$
+        $$\boxed{E[Y]=3}$$
+
+        We can then find:
+
+        $$\mathcal{R}_{YY}(t)=E[(2X(t)+3)(2X(t+\tau)+3)]$$
+
+        We expand this to get:
+
+        $$\mathcal{R}_{YY}(t)=4E[X(t)2X(t+\tau)]+6E[X(t+\tau)]+6E[X(t)]+9$$
+        $$\boxed{\mathcal{R}_{YY}(t)=4\mathcal{R}_{XX}(t)+9}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Given that $X$ and $Y$ are wide sense stationary processes, we may write:
+
+        $$V(t)=2X(t)+Y(t)\to E[V]=2E[X]+E[Y]$$
+        $$\mathcal{R}_V(t,\tau)=E[\bar{V}(t)V(t+\tau)]$$
+
+        We expand this to get:
+
+        $$\mathcal{R}_V(t,\tau)=E[(2X(t)+Y(t))(2X(t+\tau)+Y(t+\tau))]$$
+        $$\mathcal{R}_V(t,\tau)=E[(2X(t)2X(t+\tau)+Y(t)Y(t+\tau))+2X(t)Y(t+\tau)+2Y(t)X(t+\tau)]$$
+
+        And thus we conclude:
+
+        $$\boxed{\mathcal{R}_V(t,\tau)\neq \mathcal{R}_X(t,\tau)+\mathcal{R}_Y(t,\tau)}$$
+
+        Therefore, it is \underline{not wide sense stationary}
+
+      \item Similar to the above, we write:
+
+        $$E[W]=E[XY]$$
+
+        Since $Y$ and $X$ are independent, we get:
+
+        $$E[W]=E[X]E[Y]=\mu_X\mu_Y$$
+
+        We then write:
+
+        $$\mathcal{R}_W(t,\tau)=E[\bar{W}(t)W(t+\tau)]$$
+
+        We expand:
+
+        $$\mathcal{R}_W(t,\tau)=E[X(t)Y(t)X(t+\tau)Y(t+\tau)]$$
+
+        Once again, because $X$ and $Y$ are independent, we get:
+
+        $$\boxed{\mathcal{R}_W(t,\tau)=E[X(t)X(t+\tau)][EY(t)Y(t+\tau)]=\mathcal{R}_X(t,\tau)\mathcal{R}_Y(t,\tau)}$$
+
+        And, therefore, $W$ \underline{is independent and wide sense stationary}
+
+    \end{enumerate}
+
+  \item We begin by writing the autocorrelation as:
+
+    $$\mathcal{R}_{WW}(t,\tau)=E[W(t)W(t+\tau)]$$
+
+    We expand to get:
+
+    $$\mathcal{R}_{WW}(t,\tau)=E[(X\cos(10^8\pi t)+Y\sin(10^8\pi t))(X\cos(10^8\pi(t+\tau))+Y\sin(10^8\pi(t+\tau)))]$$
+
+    Since $X$ and $Y$ are uncorrelated, we know that any expectation value involving both will cancel, so we simplify to:
+
+    $$\mathcal{R}_{WW}(t,\tau)=E[X^2\cos(10^8\pi t)\cos(10^8\pi(t+\tau))+Y^2\sin(10^8\pi t)\sin(10^8\pi(t+\tau))]$$
+
+    We use the identity that $\cos(x+y)=\cos(x)\cos(y)-\sin(x)\sin(y)$ to get:
+
+    $$\mathcal{R}_{WW}(t,\tau)=E[X^2\cos(10^8\pi \tau)\cos(10^8\pi t)+Y^2\cos(10^8\pi\tau)\sin(10^8\pi t)]$$
+
+    Since $X$ and $Y$ both have mean 0 and variance $\sigma^2$, we find that, as long as $t$ and $t+\tau$ are within the range of integration:
+
+    $$\boxed{\mathcal{R}_{WW}(t,\tau)=\sigma^2\cos(10^8\pi (t-\tau))}$$
+
+    Otherwise, it is zero.
+
+    Accordingly, we observe that the process $W(t)$ \underline{is wide sense stationary}, since the mean is zero and the autocorrelation only depends on the time difference, $t-\tau$
+
+    We can find the autocovariance as:
+
+    $$C_{WW}(t,\tau)=R_{WW}(t,\tau)-E[W(t)]E[W(t+\tau)]$$
+
+    Since we know the terms that go to zero, we find:
+
+    $$C_{WW}(t,\tau)=R_{WW}(t,\tau)$$
+    $$\boxed{C_{WW}(t,\tau)=\sigma^2\cos(10^8\pi (t-\tau))}$$
+
+    We use the autocovariance to find:
+
+    $$C_{WW}(0,.001)=\sigma^2\cos\left( -10^8\pi\cdot10^{-3} \right)$$
+    $$C_{WW}(0,.001)=\sigma^2\cos\left( -10^5\pi \right)$$
+
+    This simplifies to:
+
+    $$\boxed{C_{WW}(0,.001)=\sigma^2}$$
+    
+    We can find the mean signal power by taking $\mathcal{R}_{WW}(0)$:
+
+    $$E[W^2(t)]=\sigma^2\cos\left( 0 \right)$$
+    $$\boxed{E[W^2(t)]=\sigma^2}$$
+
+    Since the mean is zero, nothing is subtracted from the power, which gives us a variance of:
+
+    $$\boxed{\text{Var}(W(t))=\sigma^2}$$
+
+  \item
+
+    \setcounter{enumi}{11}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
