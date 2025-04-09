@@ -16,7 +16,86 @@
 
 \begin{enumerate}
 
-  \item
+  \item We begin by writing an expression for $B_k=0$, which gives us a waveform of:
+
+    $$x_0(t)=\cos\left( \frac{2\pi N t}{T} \right),\quad t\in[(k-1)T,kT]$$
+
+    We then write, for $B_k=1$:
+
+    $$x_0(t)=-\sin\left( \frac{2\pi N t}{T} \right),\quad t\in[(k-1)T,kT]$$
+
+    We know that, given that $f_o$ is a multiple of $1/T$, we know a full $N$ cycles will be transmitted. We may observe that the sample space of $X$ consists of $8$ waveforms, as a result of the transmission of 3 bits (which means $2^3$ possible combinations. These are given by:
+
+      $$x_o(t),\quad t\in[0,3T]$$
+      $$x_o(t),\quad t\in[0,2T]\quad\text{ and }\quad x_1(t),\quad t\in[2T,3T]$$
+      $$x_o(t),\quad t\in[0,T]\cup[2T,3T]\quad\text{ and }\quad x_1(t),\quad t\in[T,2T]$$
+      $$x_o(t),\quad t\in[T,3T]\quad\text{ and }\quad x_1(t),\quad t\in[0,T]$$
+      $$x_o(t),\quad t\in[0,T]\quad\text{ and }\quad x_1(t),\quad t\in[T,3T]$$
+      $$x_o(t),\quad t\in[T,2T]\quad\text{ and }\quad x_1(t),\quad t\in[0,T]\cup[2T,3T]$$
+      $$x_o(t),\quad t\in[2T,3T]\quad\text{ and }\quad x_1(t),\quad t\in[0,2T]$$
+      $$x_1(t),\quad t\in[0,3T]$$
+
+      Accordingly, we find that the elements correspond to $(B_1,B_2,B-3)$ as:
+
+      $$X_k(t)\to\left\{\begin{array}{ll} 1, & (0,0,0)\\ 2, & (0,0,1)\\3, & (0,1,0)\\4, & (1,0,0)\\5, & (0,1,1)\\6, & (1,0,1)\\7, & (1,1,0)\\8, & (1,1,1)\\\end{array}$$
+
+        To plot, we need to assume a value of $N$. Let us take this such that $N=T$ to simplify the functions. We proceed to plot each corresponding figure:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1a}
+          \caption{Plot for $(B_1,B_2,B_3)=(0,0,0)$}
+          \label{fig:1}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1b}
+          \caption{Plot for $(B_1,B_2,B_3)=(0,0,1)$}
+          \label{fig:2}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1c}
+          \caption{Plot for $(B_1,B_2,B_3)=(0,1,0)$}
+          \label{fig:3}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1d}
+          \caption{Plot for $(B_1,B_2,B_3)=(1,0,0)$}
+          \label{fig:4}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1e}
+          \caption{Plot for $(B_1,B_2,B_3)=(0,1,1)$}
+          \label{fig:5}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1f}
+          \caption{Plot for $(B_1,B_2,B_3)=(1,1,0)$}
+          \label{fig:6}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1g}
+          \caption{Plot for $(B_1,B_2,B_3)=(1,0,1)$}
+          \label{fig:7}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.75\textwidth]{Figures/HW10-1h}
+          \caption{Plot for $(B_1,B_2,B_3)=(1,1,1)$}
+          \label{fig:8}
+        \end{figure}
 
   \item
 
@@ -56,7 +135,21 @@
 
         Which means that $Y_1$ and $Y_2$ are \underline{independent}
 
-      \item Summing the two distributions 
+      \item Summing the two distributions and averaging their means and standard deviations, we find:
+
+        $$E\left[ \frac{Y_1+Y_2}{2} \right]=\frac{1}{2}(5+2.5)$$
+        $$E\left[ \frac{Y_1+Y_2}{2} \right]=3.75$$
+
+        And then:
+
+        $$\sigma_{(Y_1+Y_2)/2}=\left( \frac{1}{2} \right)^2(1+1)$$
+        $$\sigma_{(Y_1+Y_2)/2}=.5$$
+
+        Thus, we get:
+
+        $$\boxed{\frac{Y_1(t)+Y_2(t)}{2}\to N(3.75,.5)}$$
+
+        A normal distribution, with a mean of 3.75 and standard deviation of .5
 
     \end{enumerate}
 
@@ -66,9 +159,56 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We know that the mean of $X(t)$ may be expressed as:
 
-      \item 
+        $$\mu_X=E[X(t)]=E[A_o\cos(\omega_ot+\theta)]$$
+
+        Given that this is over a uniform function from $-\pi$ to $\pi$, we find:
+
+        $$\boxed{\mu_X=0}$$
+
+        We proceed to find the autocorrelation function as:
+
+        $$\mathcal{R}_{XX}(t,\tau)=E[X(t)X(t+\tau)]$$
+
+        We expand to get:
+
+        $$\mathcal{R}_{XX}(t,\tau)=E[A_o^2\cos(\omega_o t+\theta)\cos(\omega_o (t+\tau)+\theta)]$$
+
+        Applying our cosine properties gives us:
+
+        $$\mathcal{R}_{XX}(t,\tau)=E\left[\frac{A_o^2}{2}(\cos(\omega_o\tau)+\cos(2\omega_ot+\omega_o\tau))\right]$$
+
+        This simplifies to:
+
+        $$\boxed{\mathcal{R}_{XX}(t,\tau)=\frac{A_o^2}{2}\cos(\omega_o\tau)}$$
+
+        As such, since the autocorrelation depends on the time difference, and the mean is constant, we may conclude that this \underline{is a wide-sense stationary process}
+
+      \item We may write the mean as:
+
+        $$\mu_y=E[V+X(t)]=E[V]+E[X(t)]$$
+
+        This gives us:
+
+        $$\boxed{\mu_y=\mu_V}$$
+
+        We then write the autocorrelation function as:
+
+        $$\mathcal{R}_{YY}(t,\tau)=E[Y(t)Y(t+\tau)]$$
+
+        Expanding gives us:
+
+        $$\mathcal{R}_{YY}(t,\tau)=E[(V+X(t))(V+X(t+\tau))]$$
+        $$\mathcal{R}_{YY}(t,\tau)=E[V^2+VX(t+\tau)+VX(t)+X(t)X(t+\tau)]$$
+
+        We then simplify to:
+
+        $$\mathcal{R}_{YY}(t,\tau)=E[V^2+X(t)X(t+\tau)]$$
+        $$\mathcal{R}_{YY}(t,\tau)=E[V^2]+E[X(t)X(t+\tau)]$$
+        $$\boxed{\mathcal{R}_{YY}(t,\tau)=\sigma_V^2+\frac{A_o^2}{2}\cos(\omega_o\tau)}$$
+
+        Since the mean is constant due to its independence from $\theta$, and the autocorrelation depends on the time difference, this \underline{is a wide-sense stationary function}
 
     \end{enumerate}
 
@@ -342,9 +482,37 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may begin by constructing our distribution by using the formula for a Poisson distribution for each individual train line:
 
-      \item 
+        $$P[n]=\frac{(\lambda T)e^{-\lambda T}}{n!}$$
+
+        We combine the individual PMFs to get a general one for train arrivals as:
+
+        $$\lambda= \lambda_R+\lambda_G+\lambda_B$$
+
+        Entering the given information, we write:
+
+        $$\lambda= .1+.05+.15$$
+        $$\lambda= .3[\si{min^{-1}}]$$
+
+        Accordingly, we find the quantity of trains in an hour as:
+
+        $$\lambda T=60(.03)$$
+        $$\lambda T=18[\si{trains/hour}]$$
+
+        Applying this to our Poisson distribution formula, we find:
+
+        $$\boxed{P_N[n]=\text{Poisson}(18)=\frac{(18)^ne^{-18}}{n!}}$$
+
+      \item We want to find the conditional PMF, which we can do by constructing a binomial distribution
+
+        $$P[R|N=10]=\left( \begin{matrix} 10\\ R \end{matrix} \right)\left( \frac{.1}{.3} \right)^R\left( 1-\frac{.1}{.3} \right)^{10-R} $$
+
+        We simplify to find:
+
+        $$\boxed{P[R|N=10]=\left( \begin{matrix} 10\\ R \end{matrix} \right)\left( \frac{1}{3} \right)^R\left( \frac{2}{3} \right)^{10-R}}$$
+
+        As such, we see that this follows a binomial distrbution with $n=10$ and $p=1/3$
 
     \end{enumerate}
 
