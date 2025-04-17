@@ -1,0 +1,153 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Analysis of Random Phenomena
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Final}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item First, we may write the autocorrelation function as:
+
+        $$R_{XX}[n,k]=E[X_nX_{n+k}]$$
+
+        Given their independence, we may write:
+
+        $$R_{XX}[n,k]=E[X_n]E[X_{n+k}]$$
+
+        We are given the expectation value of $X$, which allows use to write:
+
+        $$R_{XX}[n,k]=(\mu_x)^2$$
+        $$R_{XX}[n,k]=(2)^2$$
+        $$\boxed{R_{XX}[n,k]=4}$$
+
+        The autocovariance may be written as:
+
+        $$C_{XX}[n,k]=R_{XX}[n,k]-E[X_n]E[X_{n+k}]$$
+        $$\boxed{C_{XX}[n,k]=0,\quad k\neq0}$$
+
+        Since the functions are i.i.d., we find that the autocovariance is zero, as the autocorrelation is equivalent to the product of the means.
+
+      \item We may express the expected power as:
+
+        $$E[X_n^2]=\text{Var}(X_n)+(E[X_n])^2$$
+
+        We may calculate the variance for an exponential distribution as:
+
+        $$\text{Var}(\text{Exp}(\mu=2))=(\mu)^2$$
+        $$\text{Var}(X_n)=4$$
+
+        As such, we get:
+
+        $$E[X_n^2]=4+4$$
+        $$\boxed{E[X_n^2]=8}$$
+
+      \item We can express the expected value of the output sequence as:
+
+        $$E[Y_n]=\frac{1}{2}(E[X_n]-E[X_{n-2}])$$
+
+        Since each $X_n$ has the same mean, we find:
+
+        $$\boxed{E[Y_n]=0}$$
+
+      \item We may rewrite the expression as:
+
+        $$R_{YY}[n,k]=E[Y_nY_{n+k}]$$
+        $$R_{YY}[n,k]=\frac{1}{4}E[(X_n-X_{n-2})(X_{n+k}-X_{n+k-2})]$$
+
+        Since the mean for every $X$ is the same, we can drop the subscripts to get:
+
+        $$R_{YY}[n,k]=\frac{1}{4}E[(X-X)(X-X)]$$
+        $$R_{YY}[n,k]=\frac{1}{4}E[(0)(0)]$$
+        $$\boxed{R_{YY}[n,k]=0}$$
+
+        The autocovariance may be written as:
+
+        $$C_{YY}[n,k]=R_{YY}[n,k]-E[Y_nY_{n+k}]$$
+
+        We may observe that both of the terms defined above are equivalent to zero, which leads us to conclude:
+
+        $$\boxed{C_{YY}[n,k]=0}$$
+
+      \item The sequence $Y_n$ \underline{is wide-sense stationary}, since its mean is constant for all indices and the autocorrelation is dependent solely on the time shift ($R_{YY}[n,k]=R_{YY}[n-k]$)
+
+      \item The \underline{components of $Y_n$ are uncorrelated}. We may conclude this since, for the entire sequence, $R_{YY}[n,k]=0$.
+
+      \item 
+
+        \begin{enumerate}
+
+          \item 
+
+          \item 
+
+          \item 
+
+        \end{enumerate}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item First and foremost, we know that, for a Gaussian distribution, we have:
+
+        $$\boxed{E[X(t)]=0}$$
+
+        Now, we may find the power by using the autocorrelation and taking $\tau\to0$:
+
+        $$E[X^2(t)]=25e^{-20000\tau^2}$$
+        $$E[X^2(t)]=25e^{-20000(0)^2}$$
+        $$\boxed{E[X^2(t)]=25}$$
+
+      \item We can find this probability by converting to a $Z$-score:
+
+        $$Z=\frac{X(1[\si{\milli\second}])}{\sigma}$$
+
+        This gives us:
+
+        $$P\left[ Z<\frac{2}{\sqrt{25}} \right]=P\left[\frac{X(1[\si{\milli\second}])}{5}<.4\right]$$
+        $$\boxed{P\left[ Z<.4 \right]=.6554}$$
+
+      \item We may begin by expanding 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
