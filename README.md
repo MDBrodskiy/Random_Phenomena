@@ -39,6 +39,8 @@
     * [**Homework 9**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/Homework9.pdf)
     * [**Homework 10**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/Homework10.pdf)
     * [**Computational Homework 3**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Homework/ComputationalHW3.m)
+* [**Final**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Final/)
+    * [**Take Home Final**](https://github.com/MDBrodskiy/Random_Phenomena/tree/master/Final/Final.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
