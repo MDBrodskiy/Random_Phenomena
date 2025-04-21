@@ -14,6 +14,17 @@
 
 \maketitle
 
+\begin{justifying}
+  \textbf{On my honor, I pledge to uphold the values of honesty, integrity, and respect that are expected of me as a Northeastern student.}\\
+
+ Northeastern University holds all students accountable for the honest completion of examinations, tests, papers, projects, and assignments. students are obligated to approach these tasks with unwavering integrity.\\
+
+Students should complete this quiz independently, relying solely on their own efforts and understanding. The work submitted will be a true reflection of their individual endeavor. Please  answer all components of the questions and provide comprehensive details of your work.
+
+\end{justifying}
+
+\vspace{15pt}
+
 \begin{enumerate}
 
   \item
@@ -24,7 +35,7 @@
 
         $$R_{XX}[n,k]=E[X_nX_{n+k}]$$
 
-        Given their independence, we may write:
+        Given their independence, for $k\neq 0$ we may write:
 
         $$R_{XX}[n,k]=E[X_n]E[X_{n+k}]$$
 
@@ -32,27 +43,28 @@
 
         $$R_{XX}[n,k]=(\mu_x)^2$$
         $$R_{XX}[n,k]=(2)^2$$
-        $$\boxed{R_{XX}[n,k]=4}$$
+
+        When we take $k\to0$, we find that the variance component does not vanish such that:
+
+        $$R_{XX}[n,0]=E[X_n^2]$$
+        $$R_{XX}[n,0]=\text{Var}(X_n)+(E[X_n])^2$$
+        $$R_{XX}[n,0]=2^2+(2)^2$$
+        $$\boxed{R_{XX}[n,k]=\left\{\begin{array}{ll} 4, & k\neq0\\8, & k=0\end{array}}$$
 
         The autocovariance may be written as:
 
         $$C_{XX}[n,k]=R_{XX}[n,k]-E[X_n]E[X_{n+k}]$$
-        $$\boxed{C_{XX}[n,k]=0,\quad k\neq0}$$
 
-        Since the functions are i.i.d., we find that the autocovariance is zero, as the autocorrelation is equivalent to the product of the means.
+        We may notice that we simply subtract 4 from the autocorrelation to get:
+
+        $$\boxed{C_{XX}[n,k]=\left\{\begin{array}{ll} 0, & k\neq0\\4, & k=0\end{array}}$$
 
       \item We may express the expected power as:
 
         $$E[X_n^2]=\text{Var}(X_n)+(E[X_n])^2$$
 
-        We may calculate the variance for an exponential distribution as:
+        We may see that this is equivalent to the $k=0$ value of the autocorrelation. Thus, we get:
 
-        $$\text{Var}(\text{Exp}(\mu=2))=(\mu)^2$$
-        $$\text{Var}(X_n)=4$$
-
-        As such, we get:
-
-        $$E[X_n^2]=4+4$$
         $$\boxed{E[X_n^2]=8}$$
 
       \item We can express the expected value of the output sequence as:
@@ -68,33 +80,198 @@
         $$R_{YY}[n,k]=E[Y_nY_{n+k}]$$
         $$R_{YY}[n,k]=\frac{1}{4}E[(X_n-X_{n-2})(X_{n+k}-X_{n+k-2})]$$
 
-        Since the mean for every $X$ is the same, we can drop the subscripts to get:
+        We distribute to get:
 
-        $$R_{YY}[n,k]=\frac{1}{4}E[(X-X)(X-X)]$$
-        $$R_{YY}[n,k]=\frac{1}{4}E[(0)(0)]$$
-        $$\boxed{R_{YY}[n,k]=0}$$
+        $$R_{YY}[n,k]=\frac{1}{4}E[X_nX_{n+k}-X_{n-2}X_{n+k}-X_nX_{n+k-2}+X_{n-2}X_{n+k-2}]$$
+
+        We first take $k\to0$ to get:
+
+        $$R_{YY}[n,0]=\frac{1}{4}E[X_n^2-2X_{n-2}X_{n}+X_{n-2}^2]$$
+
+        This gives us:
+
+        $$R_{YY}[n,0]=\frac{1}{4}(8-2(2)(2)+8)$$
+        $$R_{YY}[n,0]=2$$
+
+        Next, we take $k\to\pm2$ to get:
+
+        $$R_{YY}[n,\pm2]=\frac{1}{4}E[X_nX_{n\pm2}-X_{n-2}X_{n\pm2}-X_nX_{n\pm2-2}+X_{n-2}X_{n\pm2-2}]$$
+        $$R_{YY}[n,\pm]=\frac{1}{4}(4-4-8+4)$$
+        $$R_{YY}[n,\pm]=-1$$
+
+        When $k\neq0$, we find:
+
+        $$R_{YY}[n,k]=\frac{1}{4}(2-2-2+2)$$
+        $$R_{YY}[n,k]=0$$
+
+        As such, we conclude:
+
+        $$\boxed{R_{YY}[n,k]=\left\{\begin{array}{ll} 0, & k\neq0,\pm2\\ -1, & k=\pm2\\2, & k=0\end{array}}$$
 
         The autocovariance may be written as:
 
         $$C_{YY}[n,k]=R_{YY}[n,k]-E[Y_nY_{n+k}]$$
 
-        We may observe that both of the terms defined above are equivalent to zero, which leads us to conclude:
+        Since the expectation value of $Y$ is zero, we get:
 
-        $$\boxed{C_{YY}[n,k]=0}$$
+        $$C_{YY}[n,k]=R_{YY}[n,k]$$
 
-      \item The sequence $Y_n$ \underline{is wide-sense stationary}, since its mean is constant for all indices and the autocorrelation is dependent solely on the time shift ($R_{YY}[n,k]=R_{YY}[n-k]$)
+        $$\boxed{C_{YY}[n,k]=\left\{\begin{array}{ll} 0, & k\neq0,\pm2\\ -1, & k=\pm2\\2, & k=0\end{array}}$$
 
-      \item The \underline{components of $Y_n$ are uncorrelated}. We may conclude this since, for the entire sequence, $R_{YY}[n,k]=0$.
+        \item The sequence $Y_n$ \underline{is wide-sense stationary}, since its mean is constant for all indices (it is always zero) and the autocorrelation is dependent solely on the index shift, $k$ ($R_{YY}[n,k]=R_{YY}[n-k]$)
+
+        \item The \underline{components of $Y_n$ are  not uncorrelated}. We may conclude this since, as shown in part (d), the autocorrelation is nonzero for at least one value of $k\neq0$ (when $k=\pm2$ to be precise)
 
       \item 
 
         \begin{enumerate}
 
-          \item 
+          \item We begin by finding the mean. We do this by writing:
 
-          \item 
+            $$E[W_n]=E[B_nX_n]$$
 
-          \item 
+            Since $B_n$ and $X_n$ are independent, we get:
+
+            $$E[W_n]=E[B_n]E[X_n]$$
+
+            The mean for $X_n$ is given and, by the properties of Bernoulli random variables, we know $E[B_n]=p$. Thus, we get:
+
+            $$\mu_W=E[W_n]=(p)(2)$$
+            $$\boxed{\mu_W=(p)(2)}$$
+
+            We can find the autocorrelation by writing:
+
+            $$R_{WW}[n,k]=E[W_nW_{n+k}]$$
+
+            This gives us:
+
+            $$R_{WW}[n,k]=E[B_nX_nB_{n+k}X_{n+k}]$$
+
+            Taking $k\to0$ gives us:
+
+            $$R_{WW}[n,k]=E[B_n^2X_n^2]$$
+
+            Given their independence, we get:
+
+            $$R_{WW}[n,0]=E[B_n^2]E[X_n^2]$$
+            $$R_{WW}[n,0]=(p)(8)$$
+            $$R_{WW}[n,0]=8p$$
+
+            We then find, that for $k\neq0$, we have:
+
+            $$R_{WW}[n,k]=E[B_n]E[X_n]E[X_{n+k}]E[B_{n+k}]$$
+            $$R_{WW}[n,k]=(p)(2)(2)(p)$$
+            $$R_{WW}[n,k]=4p^2$$
+
+            Thus, we write:
+
+            $$\boxed{R_{WW}[n,k]=\left\{\begin{array}{ll} 4p^2, & k\neq0\\ 8p, & k=0\end{array}}$$
+
+            We may write the autocovariance as:
+
+            $$C_{WW}[k]=R_{WW}[k]-(E[W_k])^2$$
+
+            If we take $k\to0$, we get:
+            
+            $$C_{WW}[0]=R_{WW}[0]-(E[W_0])^2$$
+            $$C_{WW}[0]=8p-(2p)^2$$
+
+            For $k\neq0$, we find:
+
+            $$C_{WW}[k]=R_{WW}[k]-4p^2$$
+            $$C_{WW}[k]=4p^2-4p^2$$
+            $$C_{WW}[k]=0$$
+
+            Thus, we write:
+
+            $$\boxed{C_{WW}[k]=\left\{\begin{array}{ll} 8p-4p^2, & k=0\\ 0, & k\neq0\end{array}}$$
+
+            Since the autocorrelation is zero for all values when $k\neq0$, we may conclude that the components of $W_n$ \underline{are uncorrelated}
+
+          \item Similar to how we did it previously, we get:
+
+            $$R_{WX}[n,k]=E[W_nX_{n+k}]$$
+
+            We expand this to get:
+
+            $$R_{WX}[n,k]=E[B_nX_nX_{n+k}]$$
+
+            Taking $k\to0$, we get:
+
+            $$R_{WX}[n,0]=E[B_nX_n^2]$$
+            $$R_{WX}[n,0]=8p$$
+
+            And then for $k\neq0$, we get:
+
+            $$R_{WX}[n,k]=E[B_nX_nX_{n+k}]$$
+            $$R_{WX}[n,k]=4p$$
+
+            Thus, we write:
+
+            $$\boxed{R_{WX}[n,k]=\left\{\begin{array}{ll} 4p, & k\neq0\\ 8p, & k=0\end{array}}$$
+
+            We continue to get:
+
+            $$C_{WX}[k]=R_{WX}[k]-E[W_k]E[X_{n+k}]$$
+
+            This gives us (for $k\to0$):
+
+            $$C_{WX}[0]=R_{WX}[0]-(2p)(2)$$
+            $$C_{WX}[0]=8p-(4p)$$
+            $$C_{WX}[0]=4p$$
+
+            And for $k\neq0$:
+
+            $$C_{WX}[k]=R_{WX}[k]-E[W_k]E[X_k]$$
+            $$C_{WX}[k]=4p-4p$$
+            $$C_{WX}[k]=0$$
+
+            Thus, we conclude:
+
+            $$\boxed{C_{WX}[k]=\left\{\begin{array}{ll} 4p, & k=0\\ 0, & k\neq0\end{array}}$$
+
+          \item Finally, we compare $Y$ and $W$ by writing:
+
+            $$R_{YW}[n,k]=E[Y_nW_{n+k}]$$
+
+            We expand to get:
+
+            $$R_{YW}[n,k]=\frac{1}{2}E[(X_n-X_{n-2})B_{n+k}X_{n+k}]$$
+            $$R_{YW}[n,k]=\frac{1}{2}E[X_nB_{n+k}X_{n+k}-B_{n+k}X_{n+k}X_{n-2}]$$
+
+            Taking $k\to0$, we see:
+
+            $$R_{YW}[n,0]=\frac{1}{2}E[B_{n}X_{n}^2-B_{n}X_{n}X_{n-2}]$$
+            $$R_{YW}[n,0]=\frac{1}{2}[(8)(p)-(p)(2)(2)]$$
+            $$R_{YW}[n,0]=2p$$
+
+            For $k=2$, we see:
+
+            $$R_{YW}[n,2]=\frac{1}{2}E[X_nB_{n+2}X_{n+2}-B_{n+2}X_{n+2}X_{n-2}]$$
+            $$R_{YW}[n,2]=\frac{1}{2}[(2)(p)(2)-(p)(2)(2)]$$
+            $$R_{YW}[n,2]=0$$
+
+            Furthermore, for $k=-2$, we find:
+
+            $$R_{YW}[n,-2]=\frac{1}{2}E[X_nB_{n-2}X_{n-2}-B_{n-2}X_{n-2}^2]$$
+            $$R_{YW}[n,-2]=\frac{1}{2}[(2)(p)(2)-(p)(8)]$$
+            $$R_{YW}[n,-2]=-2p$$
+
+            For $k\neq0,-2,2$, this is:
+
+            $$R_{YW}[n,k]=\frac{1}{2}E[X_nB_{n+k}X_{n+k}-B_{n+k}X_{n+k}X_{n-2}]$$
+            $$R_{YW}[n,k]=\frac{1}{2}[(2)(2)(p)-(p)(2)(2)]$$
+            $$R_{YW}[n,k]=0$$
+
+            As such, we write:
+
+            $$\boxed{R_{YW}[n,k]=\left\{\begin{array}{ll} 0, & k\neq0,-2\\ 2p, & k=0\\-2p, & k=-2\end{array}}$$
+
+            Given that the expectation value of $Y$ is zero, we get:
+
+            $$C_{YW}[k]=R_{YW}[k]-E[Y_n]E[W_{n+k}]$$
+            $$C_{YW}[k]=R_{YW}[k]$$
+            $$\boxed{C_{YW}[k]=\left\{\begin{array}{ll} 0, & k\neq0,-2\\ 2p, & k=0\\-2p, & k=-2\end{array}}$$
 
         \end{enumerate}
 
@@ -137,13 +314,58 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may begin by writing:
 
-      \item 
+        $$E[X(t)]=AE[\cos(\omega t+\theta)]$$
 
-      \item 
+        We use the cosine identity:
 
-      \item 
+        $$\cos(\omega t+\theta)=\cos(\omega t)\cos(\theta)-\sin(\omega t)\sin(\theta)$$
+
+        To get:
+
+        $$E[X(t)]=A\left( E[\cos(\omega t)]E[\cos(\theta)]-E[\sin(\omega t)]E[\sin(\theta)] \right)$$
+
+        Since $\theta$ is a uniform distribution from $-\pi$ to $\pi$, the $\theta$-dependent terms become zero, which gives us:
+
+        $$E[X(t)]=A(0-0)$$
+        $$\boxed{E[X(t)]=0}$$
+
+      \item We can write the autocorrelation function as:
+
+        $$R_{XX}(t,\tau)=E[X(t)X(t+\tau)]$$
+
+        We substitute our values to get:
+
+        $$R_{XX}(t,\tau)=A^2E[\cos(\omega t+\theta)\cos(\omega(t+\tau)+\theta)]$$
+
+        Using the identity:
+
+        $$\cos(a)\cos(b)=\frac{1}{2}\left[ \cos(a-b)+\cos(a+b) \right]$$
+
+        This gives us:
+
+        $$E[X(t)X(t+\tau)]=\frac{A^2}{2}E\left[ \cos(\omega \tau)+\cos(2\omega t+\omega\tau+2\theta) \right]$$
+
+        We may observe that, since the second term is dependent on $\theta$, it cancels out, which leaves us with:
+
+        $$E[X(t)X(t+\tau)]=\frac{A^2}{2}E\left[ \cos(\omega \tau)\right]$$
+
+        We proceed to calculate the expectation value as:
+
+        $$E[X(t)X(t+\tau)]=\frac{A^2}{2}\int_{-\omega_o}^{\omega_o}\cos(\omega\tau)\,d\omega$$
+
+        We see that this results in the sinc function, which lets us write:
+
+        $$\boxed{R_{XX}(t,\tau)=\frac{A^2}{2}\text{sinc}\left( \frac{\omega_o\tau}{\pi} \right)}$$
+
+      \item We may conclude that $X(t)$ \underline{is wide-sense stationary} since the mean is constant (0, per part a), and the autocorrelation depends only on the time difference, $\tau$ (as per part b)
+
+      \item We find the variance as:
+
+        $$\text{Var}(X(t))=R_{XX}(X(0))$$
+        $$\text{Var}(X(t))=\frac{A^2}{2} \text{sinc}(0)$$
+        $$\boxed{\text{Var}(X(t))=\frac{A^2}{2}}$$
 
     \end{enumerate}
 
