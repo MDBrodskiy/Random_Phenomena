@@ -300,13 +300,121 @@ Students should complete this quiz independently, relying solely on their own ef
         $$P\left[ Z<\frac{2}{\sqrt{25}} \right]=P\left[\frac{X(1[\si{\milli\second}])}{5}<.4\right]$$
         $$\boxed{P\left[ Z<.4 \right]=.6554}$$
 
-      \item We may begin by expanding 
+      \item We may begin by expanding the expression inside of the probability statement to write:
 
-      \item 
+        $$2X(t=1)+X(t=1+4)$$
 
-      \item 
+        We can then use the autocorrelation function (since it depends on the time difference only) to write:
 
-      \item 
+        $$R_{XX}(.004)=25e^{-20000(.004)^2}$$
+        $$R_{XX}(.004)=25e^{-.32}$$
+        $$R_{XX}(.004)=18.154$$
+
+        We can then create a new standard deviation component to ``re-normalize'' the $Z$ score, by finding:
+
+        $$\text{Var}(Z')=4(25)+25+4(18.154)$$
+        $$\text{Var}(Z')=197.61$$
+
+        This lets us write:
+
+        $$P[2X(t=1)+X(t=5)>2]\to P\left[Z>\frac{2}{\sqrt{197.61}}\right]$$
+        $$P[2X(t=1)+X(t=5)>2]\to P\left[Z>.1423\right]$$
+
+        Thus, we get:
+
+        $$P[Z>.1423]=1-P[Z\leq.1423]$$
+        $$P[Z>.1423]=.4467$$
+        $$\boxed{P[2X(t=1)+X(t=5)>2]=.4467}$$
+
+      \item We may write this as:
+
+        $$E[Z]=E[X(t)-AY(t)]$$
+
+        We then expand:
+
+        $$E[Z]=E[X(t)]-E[A]E[Y(t)]$$
+
+        This gives us:
+
+        $$E[Z]=(0)-(1)(0)$$
+        $$\boxed{E[Z]=0}$$
+
+        We can then write the autocorrelation as:
+
+        $$R_{ZZ}(t,\tau)=E[Z(t)Z(t+\tau)]$$
+
+        Once again, we expand to get:
+
+        $$R_{ZZ}(t,\tau)=E[(X(t)-AY(t))(X(t+\tau)-AY(t+\tau))]$$
+
+        We distribute to get:
+
+        $$R_{ZZ}(t,\tau)=E[X(t)X(t+\tau)-AY(t)X(t+\tau)-AX(t)Y(t+\tau)+A^2Y(t)Y(t+\tau)]$$
+
+        This gives us:
+
+        $$R_{ZZ}(t,\tau)=R_{XX}(t,\tau)+4R_{YY}(t,\tau)-E[Y(t)X(t+\tau)+X(t)Y(t+\tau)]$$
+        $$R_{ZZ}(t,\tau)=R_{XX}(t,\tau)+4R_{YY}(t,\tau)-R_{XY}(t,\tau)-R_{YX}(t,\tau)$$
+
+        Since we know $X$ and $Y$ are independent of each other, we can say:
+
+        $$R_{ZZ}(t,\tau)=R_{XX}(t,\tau)+4R_{YY}(t,\tau)$$
+        $$\boxed{R_{ZZ}(t,\tau)=125e^{-20000\tau^2},\quad -\infty<\tau<\infty}$$
+
+        Since the mean is constant and the autocorrelation is independent of $t$, we can conclude that $Z$ \underline{is wide-sense stationary}
+
+      \item We may write the expectation value as:
+
+        $$E[W]=E[X(t)\cos(\omega_ot)+Y(t)\sin(\omega_ot)]$$
+
+        We expand this to get:
+
+        $$E[W]=E[X(t)]E[\cos(\omega_ot)]+E[Y(t)]E[\sin(\omega_ot)]$$
+
+        Since $X$ and $Y$ have a mean of 0, we get:
+
+        $$\boxed{E[W]=0}$$
+
+        The autocorrelation becomes:
+
+        $$R_{WW}(t,\tau)=E[W(t)W(t+\tau)]$$
+        $$R_{WW}(t,\tau)=E[(X(t)\cos(\omega_ot)+Y(t)\sin(\omega_ot))(X(t+\tau)\cos(\omega_o(t+\tau))$$$$+Y(t+\tau)\sin(\omega_o(t+\tau)))]$$
+
+        We further expand to get:
+
+        $$R_{WW}(t,\tau)=R(\tau)\cos(\omega_ot)\cos(\omega_o(t+\tau))+R(\tau)\sin(\omega_ot)\sin(\omega_o(t+\tau))$$
+
+        We use the identity:
+
+        $$\cos(A-B)=\cos(A)\cos(B)+\sin(A)\sin(B)$$
+
+        to get:
+
+        $$R_{WW}(t,\tau)=R(\tau)[\cos(\omeg_ot-\omega_o(t+\tau)])$$
+        $$\boxed{R_{WW}(t,\tau)=R(\tau)\cos(\omega_o\tau)}$$
+
+        Thus, because the mean is constant and the autocorrelation does not depend on $t$, we conclude that $W$ \underline{is wide-sense stationary}
+
+      \item We can use the autocorrelation function of $X$ to find the spectral density:
+
+        $$S_XX(f)=\int_0^{\infty}R(\tau)\cos(2\pi f\tau)\,d\tau$$
+        $$S_XX(f)=25\int_0^{\infty}\cos(2\pi f\tau)e^{-20000\tau^2}\,d\tau$$
+
+        We continue to evaluate:
+
+        $$S_XX(f)=12.5\int_0^{\infty}e^{-10000\pi^2f^2\tau^2}\,d\tau$$
+
+        We take $u\to 100\pi f\tau$ to get:
+
+        $$S_XX(f)=\frac{1}{8\pi f}\int_0^{\infty}e^{-u^2}\,du$$
+        $$S_XX(f)=\frac{1}{8\pi f}\left[ \frac{\sqrt{\pi}}{2} \right]$$
+        $$\boxed{S_XX(f)=\frac{1}{16\sqrt{\pi} f}}$$
+
+        We find the power over the frequency range by writing:
+
+        $$P_X=\int_0^{100} \frac{1}{16\sqrt{\pi}f}\,df$$
+        $$P_X=\frac{1}{16\sqrt{\pi}}(\ln(100))$$
+        $$\boxed{P_X=.1624}$$
 
     \end{enumerate}
 
